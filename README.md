@@ -122,12 +122,16 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 
 #### Parameters
 
-**startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
-**requestCode**: a user-defined request code to handle response messages  
-**apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
-**isLive**: Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
-**userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
-**images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+*  **startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
+*  **requestCode**: a user-defined request code to handle response messages  
+*  **apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
+*  **isLive**: Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
+*  **userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
+*  **images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+
+The FFImage class has several constructors:
+*  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
+*  Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
 
 #### Finish Fujifilm SPA SDK
 
@@ -157,15 +161,15 @@ In the case of a successful purchase, the result code of the response will be RE
 
 The status code will be one of the following values:
 
-Fatal Error         = 0  
-No Images Uploaded  = 1  
-No Internet         = 2  
-Invalid API Key     = 3  
-User Cancelled      = 4  
-No Valid Images     = 5  
-Time Out            = 6  
-Order Complete      = 7  
-Upload Failed       = 8  
+*  Fatal Error         = 0  
+*  No Images Uploaded  = 1  
+*  No Internet         = 2  
+*  Invalid API Key     = 3  
+*  User Cancelled      = 4  
+*  No Valid Images     = 5  
+*  Time Out            = 6  
+*  Order Complete      = 7  
+*  Upload Failed       = 8  
 
 #### Full Example
 
