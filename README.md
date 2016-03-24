@@ -34,12 +34,25 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
 3. Select “Import .JAR or .AAR Package” and click “Next”. Then link to the path of the library downloaded in Step 1 and click “Finish”. 
 4. Set your app to be dependent on the FujifilmSPASDK library. Right click on your app in the project browser and click Open Module Settings.
 5. In the Project Structure window make sure your app is selected in the modules area to the left, then click on the Dependencies tab. Click the plus sign in the Dependencies window, then click “Module dependency”. Select the FujifilmSPASDK library in the Choose Modules window and press “OK”.
-6. Include Additional Dependencies. Add the following dependencies to your project’s app build.gradle file: 
-* compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
-transitive = true
-}
-* compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-* These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
+6. Include Additional Dependencies. 
+    * Add the following dependencies to your project’s app build.gradle file: 
+        * These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
+        * ```Java  
+            compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
+                transitive = true
+            }  
+            compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'  
+            ```
+    * Include the following in your project’s build.gradle file allprojects repositories:
+        *
+            ```Java  
+            allprojects {  
+                repositories {  
+                    jcenter()  
+                    maven { url "https://jitpack.io" }  
+                }  
+            }
+            ```
 
 #### Android Studio / Gradle
 
@@ -82,6 +95,19 @@ Clean and build your project.
 ## Implementation Instructions
 
 ### Fujifilm SPA SDK Usage
+
+Import the following classes in your activity:
+
+```Java
+import com.fujifilm.libs.spa.FFImage;
+import com.fujifilm.libs.spa.FujifilmSPA;
+
+//Add the 3 following classes, if not already imported
+import java.net.URL;
+import java.util.ArrayList;
+import android.content.Intent;
+```
+
 Create and store a FujifilmSPA Object using the following code:  
 
 ```Java
@@ -100,8 +126,8 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 **requestCode**: a user-defined request code to handle response messages  
 **apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
 **isLive**: Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
-**userid**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
-**images**: ArrayList of image local path strings or public urls (http://). If using local paths, they can be either relative or absolute paths. Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.  
+**userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
+**images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
 
 #### Finish Fujifilm SPA SDK
 
@@ -144,37 +170,74 @@ Upload Failed       = 8
 #### Full Example
 
 ```Java
-private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
-private ArrayList<FFImage> images;
+import com.fujifilm.libs.spa.FFImage;
+import com.fujifilm.libs.spa.FujifilmSPA;
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+/Add the 3 following classes if not already imported
+import java.net.URL;
+import java.util.ArrayList;
+import android.content.Intent;
 
-    images = new ArrayList<>();
-    //supports public images OR local paths (relative or absolute) to images
-    images.add("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg"); //public url
-    images.add("/somepath/someimage.jpg"); //local path (relative or absolute)
-    FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
-    fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, "YourAPIKEY", false, images);
-}
-protected void onActivityResult(int requestCode, int resultCode, Intent data) 
-{
-    super.onActivityResult(requestCode, resultCode, data);
+public class MainActivity extends AppCompatActivity {
 
-    if (requestCode == FujifilmSPASDK_INTENT) {
-        if (resultCode == RESULT_OK) {
-            //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
+    private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
+    private ArrayList<FFImage> images;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        /*
+        ----------------------------------------------------------------------------------------------
+        Create a FujifilmSPA instance and call checkout with apiKey, isLive, userId (optional), images
+        ----------------------------------------------------------------------------------------------
+
+        - Go to http://www.fujifilmapi.com to register for an apiKey.
+        - Ensure you have the right apiKey for the right environment.
+
+        @param apiKey: Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
+        @param isLive: A bool indicating which environment your app runs in.  Must match your app’s environment set on http://fujifilmapi.com.
+        @param userId: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
+        @param images: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+        *---------------------------------------------------------------------------------------
+
+        */
+        //Get Fujifilm SPA SDK singleton class instance
+        FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
+
+        //Create Array of images
+        images = new ArrayList<>();
+
+        //Add public FFImage with public URL
+        try {
+        URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+        images.add(new FFImage(myPublicImageURL));
+        }catch (MalformedURLException e) {
+        e.printStackTrace();
         }
-        //If a child app fails for any reason, the parent app will receive RESULT_CANCELED
-        if (resultCode == RESULT_CANCELED && data != null) {
 
-            //int statusCode = //(int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
+        //Add public FFImage with local image
+        //images.add(new FFImage(image.imageId, image.path)); //local image
+
+        //Call checkout which takes the user into Fujifilm's order flow
+        fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, "YOURAPIKEY", false, null, images);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == FujifilmSPASDK_INTENT) {
+            if (resultCode == RESULT_OK) {
+                //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
+            }
+            //If a child app fails for any reason, the parent app will receive RESULT_CANCELED
+            if (resultCode == RESULT_CANCELED && data != null) {
+                //int statusCode = //(int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
 
             //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
+            }
         }
-
     }
 }
 ```
