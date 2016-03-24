@@ -1,0 +1,290 @@
+[
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_progress.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_progress.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_actionbuttons.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_actionbuttons.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_navigation_item_separator.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_input.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_input.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_screen_content_include.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_search_view.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/activity_web.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/Fujifilm.Android.SPA.SDK.SampleApp/fujifilm.spa.sdk/unspecified/res/layout/activity_web.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_navigation_item_header.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/carousel_background.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/carousel_background.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_select_dialog_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_list.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_list.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_media_cancel_action.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_progress_indeterminate_horizontal.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_progress_indeterminate_horizontal.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_listitem_multichoice.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_listitem_multichoice.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_menu_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_media.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_titleframe.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_titleframe.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_dialog_title_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_progress_indeterminate.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_progress_indeterminate.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_listitem.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_listitem.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_screen_simple.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_layout_tab_icon.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/select_dialog_item_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_basic.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_basic.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_lines.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/fragment_album_browse.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/fragment_album_browse.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_listitem_singlechoice.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_listitem_singlechoice.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_layout_tab_text.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/cwac_cam2_fragment.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.commonsware.cwac/cam2/0.2.3/res/layout/cwac_cam2_fragment.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_navigation_menu.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/element_album.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/element_album.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_titleframe_lesspadding.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_titleframe_lesspadding.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/fragment_image_browse.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/fragment_image_browse.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_progress.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_progress.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_progress_indeterminate.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_progress_indeterminate.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_big_media.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_part_time.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_media_action.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_dialog_custom.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_dialog_custom.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/element_image.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/element_image.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/fragment_image_pager.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/fragment_image_pager.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/activity_main.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/activity_pick.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/layout/activity_pick.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_action_mode_bar.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_navigation_item.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_screen_toolbar.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/md_stub_progress_indeterminate_horizontal.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout/md_stub_progress_indeterminate_horizontal.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/release/layout/design_layout_snackbar.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res/layout/design_layout_snackbar.xml"
+    }
+]

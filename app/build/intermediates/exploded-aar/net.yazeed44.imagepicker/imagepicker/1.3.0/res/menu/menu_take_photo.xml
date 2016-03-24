@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:imagePicker="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_take_photo"
+        android:icon="@drawable/ic_action_camera_white"
+        android:title="@string/action_take_photo"
+        imagePicker:showAsAction="always" />
+</menu>
+<!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/menu/menu_take_photo.xml -->

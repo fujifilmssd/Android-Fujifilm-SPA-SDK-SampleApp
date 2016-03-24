@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 24.3">
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` *without specifying an explicit locale* is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is *not* `I`.
+
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        String text = String.format(&quot;%d/%d %s&quot;, count, images.size(), imageSuffix);"
+        errorLine2="                             ~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/java/com/fujifilm/sample/spa/MainActivity.java"
+            line="379"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        severity="Warning"
+        message="Field requires API level 16 (current min is 15): `android.Manifest.permission#READ_EXTERNAL_STORAGE`"
+        category="Correctness"
+        priority="6"
+        summary="Using inlined constants on older versions"
+        explanation="This check scans through all the Android API field references in the application and flags certain constants, such as static final integers and Strings, which were introduced in later versions. These will actually be copied into the class files rather than being referenced, which means that the value is available even when running on older devices. In some cases that&apos;s fine, and in other cases it can result in a runtime crash or incorrect behavior. It depends on the context, so consider the code carefully and device whether it&apos;s safe and can be suppressed or whether the code needs tbe guarded.
+
+If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.
+If your code is *deliberately* accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.
+"
+        errorLine1="                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio,adt">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/java/com/fujifilm/sample/spa/MainActivity.java"
+            line="205"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        severity="Error"
+        message="The SDK platform-tools version ((22)) is too old  to check APIs compiled with API 23; please update"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on *all* versions targeted by this application (according to its minimum SDK attribute in the manifest).
+
+If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.
+
+If your code is *deliberately* accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.
+
+If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-vNN` folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.
+
+Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        quickfix="studio,adt">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/preview/backup/index.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.
+
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/preview/backup/index.html"
+        urls="https://developer.android.com/preview/backup/index.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application"
+        errorLine2="    ^"
+        quickfix="studio,adt">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/AndroidManifest.xml"
+            line="6"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="NestedWeights"
+        severity="Warning"
+        message="Nested weights are bad for performance"
+        category="Performance"
+        priority="3"
+        summary="Nested layout weights"
+        explanation="Layout weights require a widget to be measured twice. When a LinearLayout with non-zero weights is nested inside another LinearLayout with non-zero weights, then the number of measurements increase exponentially."
+        errorLine1="            android:layout_weight=&quot;1&quot;>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="21"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/fuji_alternate_background` with a theme that also paints a background (inferred theme is `@style/Theme.Fujifilm`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@color/fuji_alternate_background&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="6"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        severity="Warning"
+        message="Possible overdraw: Root element paints background `@color/panel_background_fujifilm` with a theme that also paints a background (inferred theme is `@style/Theme.Fujifilm`)"
+        category="Performance"
+        priority="3"
+        summary="Overdraw: Painting regions more than once"
+        explanation="If you set a background drawable on a root view, then you should use a custom theme where the theme background is null. Otherwise, the theme background will be painted first, only to have your custom background completely cover it; this is called &quot;overdraw&quot;.
+
+NOTE: This detector relies on figuring out which layouts are associated with which activities based on scanning the Java code, and it&apos;s currently doing that using an inexact pattern matching algorithm. Therefore, it can incorrectly conclude which activity the layout is associated with and then wrongly complain that a background-theme is hidden.
+
+If you want your custom background on multiple pages, then you should consider making a custom theme with your custom background and just using that theme instead of a root element background.
+
+Of course it&apos;s possible that your custom drawable is translucent and you want it to be mixed with the background. However, you will get better performance if you pre-mix the background with your drawable and use that resulting image or color as a custom theme background instead.
+"
+        errorLine1="    android:background=&quot;@color/panel_background_fujifilm&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/carousel_background.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ab_background_textured_fujifilm` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable/ab_background_textured_fujifilm.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.btn_addphoto` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-hdpi/btn_addphoto.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-mdpi/btn_addphoto.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xhdpi/btn_addphoto.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xxhdpi/btn_addphoto.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.color.fuji_title_text` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/color/fuji_title_text.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.fujifilm_button` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable/fujifilm_button.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.user_id_txt` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;user_id_txt&quot;>User ID&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/values/strings.xml"
+            line="12"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.spa_sdk_image_limit_warning` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;spa_sdk_image_limit_warning&quot;>You have reached the image limit for the SPA SDK&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/values/strings.xml"
+            line="26"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        severity="Warning"
+        message="The image `ab_texture_tile_fujifilm.png` varies significantly in its density-independent (dip) size across the various density versions: drawable-mdpi/ab_texture_tile_fujifilm.png: 6x6 dp (6x6 px), drawable-xhdpi/ab_texture_tile_fujifilm.png: 4x4 dp (8x8 px), drawable-hdpi/ab_texture_tile_fujifilm.png: 4x4 dp (6x6 px), drawable-xxhdpi/ab_texture_tile_fujifilm.png: 4x4 dp (12x12 px)"
+        category="Usability:Icons"
+        priority="5"
+        summary="Icon density-independent size validation"
+        explanation="Checks the all icons which are provided in multiple densities, all compute to roughly the same density-independent pixel (`dip`) size. This catches errors where images are either placed in the wrong folder, or icons are changed to new sizes but some folders are forgotten.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xxhdpi/ab_texture_tile_fujifilm.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-hdpi/ab_texture_tile_fujifilm.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xhdpi/ab_texture_tile_fujifilm.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-mdpi/ab_texture_tile_fujifilm.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        severity="Warning"
+        message="The `ab_texture_tile_fujifilm.png` icon has identical contents in the following configuration folders: drawable-hdpi, drawable-mdpi"
+        category="Usability:Icons"
+        priority="5"
+        summary="Identical bitmaps across various configurations"
+        explanation="If an icon is provided under different configuration parameters such as `drawable-hdpi` or `-v11`, they should typically be different. This detector catches cases where the same icon is provided in different configuration folder which is usually not intentional.">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-mdpi/ab_texture_tile_fujifilm.png"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-hdpi/ab_texture_tile_fujifilm.png"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        severity="Warning"
+        message="Missing the following drawables in `drawable-xhdpi`: img_placeholder.png (found in drawable-mdpi, drawable-hdpi)"
+        category="Usability:Icons"
+        priority="4"
+        summary="Icon densities validation"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.
+
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xhdpi"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        severity="Warning"
+        message="Missing the following drawables in `drawable-xxhdpi`: img_placeholder.png (found in drawable-mdpi, drawable-hdpi)"
+        category="Usability:Icons"
+        priority="4"
+        summary="Icon densities validation"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.
+
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/drawable-xxhdpi"/>
+    </issue>
+
+    <issue
+        id="IconMissingDensityFolder"
+        severity="Warning"
+        message="Missing density variation folders in `src/main/res`: drawable-xxxhdpi"
+        category="Usability:Icons"
+        priority="3"
+        summary="Missing density folder"
+        explanation="Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as `drawable-hdpi`.
+
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable `ANDROID_LINT_INCLUDE_LDPI=true`. For more information on current density usage, see http://developer.android.com/resources/dashboard/screens.html"
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res"/>
+    </issue>
+
+    <issue
+        id="GoogleAppIndexingWarning"
+        severity="Warning"
+        message="App is not indexable by Google Search; consider adding at least one Activity with an ACTION-VIEW intent-filler. See issue explanation for more details."
+        category="Usability"
+        priority="5"
+        summary="Missing support for Google App Indexing"
+        explanation="Adds deep links to get your app into the Google index, to get installs and traffic to your app from Google Search."
+        url="https://g.co/AppIndexing/AndroidStudio"
+        urls="https://g.co/AppIndexing/AndroidStudio"
+        errorLine1="    &lt;application"
+        errorLine2="    ^">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/AndroidManifest.xml"
+            line="6"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        severity="Warning"
+        message="The view name (`@+id/customDevUrl`) suggests this is a URI, but it does not include &apos;`textUri`&apos; in the `inputType`"
+        category="Usability"
+        priority="5"
+        summary="Missing `inputType` or `hint`"
+        explanation="Providing an `inputType` attribute on a text field improves usability because depending on the data to be input, optimized keyboards can be shown to the user (such as just digits and parentheses for a phone number). Similarly,a hint attribute displays a hint to the user for what is expected in the text field.
+
+The lint detector also looks at the `id` of the view, and if the id offers a hint of the purpose of the field (for example, the `id` contains the phrase `phone` or `email`), then lint will also ensure that the `inputType` contains the corresponding type attributes.
+
+If you really want to keep the text field generic, you can suppress this warning by setting `inputType=&quot;text&quot;`."
+        errorLine1="            android:inputType=&quot;none&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio,adt">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="195"
+            column="13"/>
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="187"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ButtonCase"
+        severity="Warning"
+        message="The standard Android way to capitalize CANCEL is &quot;Cancel&quot; (tip: use `@android:string/cancel` instead)"
+        category="Usability"
+        priority="2"
+        summary="Cancel/OK dialog button capitalization"
+        explanation="The standard capitalization for OK/Cancel dialogs is &quot;OK&quot; and &quot;Cancel&quot;. To ensure that your dialogs use the standard strings, you can use the resource strings @android:string/ok and @android:string/cancel."
+        errorLine1="    &lt;string name=&quot;cancel_txt&quot;>CANCEL&lt;/string>"
+        errorLine2="                              ^">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/values/strings.xml"
+            line="6"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="RelativeOverlap"
+        severity="Warning"
+        message="`@id/toggle` can overlap `TextView-1` if @string/environment_txt, @id/toggle grow due to localized text expansion"
+        category="Internationalization"
+        priority="3"
+        summary="Overlapping items in RelativeLayout"
+        explanation="If relative layout has text or button items aligned to left and right sides they can overlap each other due to localized text expansion unless they have mutual constraints like `toEndOf`/`toStartOf`."
+        errorLine1="            &lt;RadioGroup"
+        errorLine2="            ^">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="80"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        severity="Warning"
+        message="Use &quot;`end`&quot; instead of &quot;`right`&quot; to ensure correct behavior in right-to-left locales"
+        category="Bi-directional Text"
+        priority="5"
+        summary="Using left/right instead of start/end attributes"
+        explanation="Using `Gravity#LEFT` and `Gravity#RIGHT` can lead to problems when a layout is rendered in locales where text flows from right to left. Use `Gravity#START` and `Gravity#END` instead. Similarly, in XML `gravity` and `layout_gravity` attributes, use `start` rather than `left`.
+
+For XML attributes such as paddingLeft and `layout_marginLeft`, use `paddingStart` and `layout_marginStart`. *NOTE*: If your `minSdkVersion` is less than 17, you should add *both* the older left/right attributes *as well as* the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.
+
+(Note: For `Gravity#LEFT` and `Gravity#START`, you can use these constants even when targeting older platforms, because the `start` bitmask is a superset of the `left` bitmask. Therefore, you can use `gravity=&quot;start&quot;` rather than `gravity=&quot;left|start&quot;`.)"
+        errorLine1="                android:gravity=&quot;center_vertical|right&quot;"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/layout/activity_main.xml"
+            line="34"
+            column="34"/>
+    </issue>
+
+</issues>

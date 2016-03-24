@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fuji_alternate_background">#EDF5FF</color>
+    <color name="fuji_black">#272727</color>
+    <color name="fuji_gray_background">#efeff4</color>
+    <color name="fuji_help_background">#222222</color>
+    <color name="fuji_primary_font_color">#6E6E6E</color>
+    <color name="fuji_secondary_font_color">#C0C0C0</color>
+    <color name="fuji_toolbar_stroke">#B2B2B2</color>
+    <color name="fuji_transparent_background">#33000000</color>
+    <color name="panel_background_fujifilm">#F2F2F2</color>
+    <color name="panel_background_pressed_fujifilm">#FCFCFC</color>
+    <string name="SPA_Error_HTTPError">ERROR</string>
+    <string name="SPA_Error_NoImagesToUpload">No images could be uploaded</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Fujifilm.SPA.SDK</string>
+    <string name="are_you_sure_txt">Leaving will lose your order information. Are you sure you would like to go back?</string>
+    <string name="cancel_order_txt">Cancel Order</string>
+    <string name="cancel_txt">cancel</string>
+    <string name="cart_txt">Cart</string>
+    <string name="checkout_txt">Checkout</string>
+    <string name="choose_txt">Choose image</string>
+    <string name="compose_txt">Compose</string>
+    <string name="conformation_txt">Conformation</string>
+    <string name="fatal_error_msg">Fatal error.</string>
+    <string name="handle_fatal_error">A problem has occurred.  Please try again later.</string>
+    <string name="invalid_api_key_msg">Invalid API key.</string>
+    <string name="no_images_uploaded_msg">No images uploaded.</string>
+    <string name="no_internet_error_msg">Internet access is required to use this app. Attempting to reconnect to the internet…</string>
+    <string name="no_internet_msg">No internet connection.</string>
+    <string name="no_txt">No</string>
+    <string name="no_valid_images_msg">No valid images.</string>
+    <string name="ok_txt">OK</string>
+    <string name="order_complete">Order Complete: %1$s</string>
+    <string name="retry_txt">Retry</string>
+    <string name="time_out_msg">User timed out</string>
+    <string name="upload_failed">upload_failed.</string>
+    <string name="user_canceled_msg">User Canceled.</string>
+    <string name="wait_msg">Please wait…</string>
+    <string name="website_failed">We are currently undergoing maintenance. Please try again later.</string>
+    <string name="yes_txt">Yes</string>
+    <style name="SPAActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <item name="android:textColorPrimary">@color/fuji_black</item>
+        <item name="actionMenuTextColor">@color/fuji_black</item>
+
+    </style>
+    <style name="Theme.SPAFujifilm" parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+
+        <!-- Set AppCompat’s color themeing attrs -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/fuji_black</item>
+        <item name="colorAccent">@color/fuji_gray_background</item>
+
+        <item name="md_widget_color">@color/fuji_black</item>
+        <!--<item name="windowActionBar">false</item>-->
+        <item name="md_positive_color">@color/fuji_black</item>
+        <item name="md_neutral_color">@color/fuji_black</item>
+        <item name="md_negative_color">@color/fuji_black</item>
+        <item name="md_title_color">@color/fuji_black</item>
+
+        <item name="actionModeBackground">@android:color/white</item>
+
+    </style>
+</resources>

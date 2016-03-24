@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/cwac_cam2_confirm.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.commonsware.cwac/cam2/0.2.3/res/menu/cwac_cam2_confirm.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/menu_take_photo.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/menu/menu_take_photo.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/menu_select_all.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/menu/menu_select_all.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/menu_web.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/Fujifilm.Android.SPA.SDK.SampleApp/fujifilm.spa.sdk/unspecified/res/menu/menu_web.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/src/main/res/menu/menu_main.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/menu/menu_deselect_all.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/net.yazeed44.imagepicker/imagepicker/1.3.0/res/menu/menu_deselect_all.xml"
+    }
+]

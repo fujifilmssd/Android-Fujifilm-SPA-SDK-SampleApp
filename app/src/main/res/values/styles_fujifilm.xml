@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2011 The Android Open Source Project
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <style name="Theme.Fujifilm" parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarItemBackground">@drawable/selectable_background_fujifilm</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Fujifilm</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Fujifilm</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Fujifilm</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Fujifilm</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Fujifilm</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_fujifilm</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_fujifilm</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Fujifilm</item>
+
+        <!-- Set AppCompat’s color theming attrs -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/fuji_black</item>
+        <item name="colorAccent">@color/fuji_black</item>
+
+        <item name="md_widget_color">@color/fuji_black</item>
+        <!--<item name="windowActionBar">false</item>-->
+        <item name="md_positive_color">@color/fuji_black</item>
+        <item name="md_neutral_color">@color/fuji_black</item>
+        <item name="md_negative_color">@color/fuji_black</item>
+        <item name="md_title_color">@color/fuji_black</item>
+    </style>
+
+    <style name="MIP_theme" parent="Theme.Fujifilm">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ActionBar.Solid.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="background">@drawable/ab_solid_fujifilm</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_fujifilm</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_fujifilm</item>
+        <item name="progressBarStyle">@style/ProgressBar.Fujifilm</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@drawable/ab_transparent_fujifilm</item>
+        <item name="progressBarStyle">@style/ProgressBar.Fujifilm</item>
+    </style>
+	
+    <style name="PopupMenu.Fujifilm" parent="@style/Widget.AppCompat.Light.PopupMenu">	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_fujifilm</item>	
+    </style>
+	
+    <style name="DropDownListView.Fujifilm" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_fujifilm</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_fujifilm</item>
+    </style>
+	
+    <style name="DropDownNav.Fujifilm" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_fujifilm</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_fujifilm</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_fujifilm</item>
+    </style>
+    
+    <style name="ProgressBar.Fujifilm" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_fujifilm</item>
+    </style>
+    
+    <style name="ActionButton.CloseMode.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_fujifilm</item>
+    </style>
+    
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Fujifilm.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Fujifilm</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Fujifilm</item>
+    </style>
+
+    <style name="Theme.Fujifilm.ActionButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/fuji_text_size_small</item>
+    </style>
+
+    <style name="Theme.Fujifilm.EditText">
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>

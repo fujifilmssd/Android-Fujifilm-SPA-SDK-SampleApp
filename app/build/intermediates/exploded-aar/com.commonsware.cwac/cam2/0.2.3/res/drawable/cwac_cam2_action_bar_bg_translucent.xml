@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle">
+
+	<solid android:color="#AA000000"/>
+
+</shape><!-- From: file:/home/mmurphy/stuff/CommonsWare/projects/CWAC/Cam2/cam2/src/main/res/drawable/cwac_cam2_action_bar_bg_translucent.xml -->

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="alter_album_background">#BF000000</color>
+    <color name="alter_album_images_count_text_color">#a5a49f</color>
+    <color name="alter_album_name_text_color">#fcffff</color>
+    <color name="alter_checked_image_background">#dd2fdfff</color>
+    <color name="alter_checked_image_overlay">#a97f7f7f</color>
+    <color name="alter_checked_photo_overlay">#28576eff</color>
+    <color name="alter_image_check_color">#b457585b</color>
+    <color name="alter_primary">#424242</color>
+    <color name="alter_primary_dark">#212121</color>
+    <color name="alter_unchecked_image_background">@android:color/transparent</color>
+    <color name="alter_video_thumbnail_overlay">#9b9b9b</color>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="album_height">180dp</dimen>
+    <dimen name="album_spacing">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="grid_spacing">2dp</dimen>
+    <dimen name="grid_titleframe_height">42dp</dimen>
+    <dimen name="image_checked_padding">4dp</dimen>
+    <dimen name="image_spacing">2dp</dimen>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <drawable name="transparent">@android:color/transparent</drawable>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/integers.xml -->
+    <eat-comment/>
+    <integer name="num_columns_albums">2</integer>
+    <integer name="num_columns_images">3</integer>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_deselect_all">Deselect all</string>
+    <string name="action_select_all">Select all</string>
+    <string name="action_take_photo">Take a photo</string>
+    <string name="album_thumbnail">Album Thumbnail</string>
+    <string name="albums_title">Albums</string>
+    <string name="all_photos">All Photos</string>
+    <string name="app_name">ImagePicker</string>
+    <string name="dialog_choose_camera_item_0">Photo camera</string>
+    <string name="dialog_choose_camera_item_1">Video camera</string>
+    <string name="dialog_choose_camera_title">Choose camera</string>
+    <string name="image_check">Image check</string>
+    <string name="image_position_in_view_pager">% of $</string>
+    <string name="image_thumbnail">Image thumbnail</string>
+    <string name="image_video_icon_desc">Indicates this thumbnail as video</string>
+    <string name="video_too_long">Video too long. Videos must be $ seconds or less in length</string>
+    <string name="you_cant_check_more_images">You can\'t check more images</string>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="RecyclerView"/>
+</resources>

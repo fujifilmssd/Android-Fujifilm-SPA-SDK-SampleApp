@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:fillAfter="true">
+
+  <alpha
+    android:duration="500"
+    android:fromAlpha="1.0"
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:toAlpha="0.0"/>
+
+</set><!-- From: file:/home/mmurphy/stuff/CommonsWare/projects/CWAC/Cam2/cam2/src/main/res/anim/cwac_cam2_fade_out.xml -->

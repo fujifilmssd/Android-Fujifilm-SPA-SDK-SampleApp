@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/mmurphy/stuff/CommonsWare/projects/CWAC/Cam2/cam2/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="cwac_cam2_picture_fab">#00a400</color>
+    <color name="cwac_cam2_picture_fab_pressed">#00da00</color>
+    <color name="cwac_cam2_recording_fab">#da4336</color>
+    <color name="cwac_cam2_recording_fab_pressed">#e75043</color>
+    <color name="cwac_cam2_secondary_fab">#fafafa</color>
+    <color name="cwac_cam2_secondary_fab_pressed">#f1f1f1</color>
+    <!-- From: file:/home/mmurphy/stuff/CommonsWare/projects/CWAC/Cam2/cam2/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="cwac_cam2_fragment_drawer_offset_distance">16dp</dimen>
+    <dimen name="cwac_cam2_fragment_drawer_shadow_size">4dp</dimen>
+    <dimen name="cwac_cam2_fragment_drawer_width">128dp</dimen>
+    <dimen name="cwac_cam2_fragment_panel_item_height">48dp</dimen>
+    <dimen name="cwac_cam2_fragment_panel_item_width">96dp</dimen>
+    <dimen name="cwac_cam2_fragment_panel_padding">16dp</dimen>
+    <!-- From: file:/home/mmurphy/stuff/CommonsWare/projects/CWAC/Cam2/cam2/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="cwac_cam2_ok">OK</string>
+    <string name="cwac_cam2_retry">Try again</string>
+</resources>

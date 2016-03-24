@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values-land/dimens.xml -->
+    <eat-comment/>
+    <dimen name="album_height">160dp</dimen>
+    <!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/values-land/integers.xml -->
+    <eat-comment/>
+    <integer name="num_columns_albums">4</integer>
+    <integer name="num_columns_images">5</integer>
+</resources>

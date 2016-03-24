@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/layout-v14/md_stub_progress_indeterminate_horizontal.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout-v14/md_stub_progress_indeterminate_horizontal.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/layout-v14/md_stub_progress_indeterminate.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout-v14/md_stub_progress_indeterminate.xml"
+    },
+    {
+        "merged": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/res/merged/debug/layout-v14/md_stub_progress.xml",
+        "source": "/Users/jnick/Desktop/MobileDev/SPA.MobileWeb/tags/3_24_2016_AndroidSDK/Fujifilm.Android.SPA.SDK.SampleApp/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.1/res/layout-v14/md_stub_progress.xml"
+    }
+]

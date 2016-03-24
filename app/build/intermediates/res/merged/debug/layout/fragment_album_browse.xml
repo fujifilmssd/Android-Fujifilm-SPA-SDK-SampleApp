@@ -1,0 +1,10 @@
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/albums_list"
+    style="@style/RecyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    />
+
+
+<!-- From: file:/home/yazeed44/StudioProjects/MultiImagePicker/imagepicker/src/main/res/layout/fragment_album_browse.xml -->
