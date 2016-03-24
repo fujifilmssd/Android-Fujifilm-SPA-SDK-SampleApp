@@ -122,12 +122,12 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 
 #### Parameters
 
-*  **startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
-*  **requestCode**: a user-defined request code to handle response messages  
-*  **apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
-*  **isLive**: Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
-*  **userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
-*  **images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+*  **startingActivity**: (Activity) - The parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes  
+*  **requestCode**: (int) - A user-defined request code to handle response messages  
+*  **apiKey**:  (String) - Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
+*  **isLive**: (boolean) - Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
+*  **userId**: (String) - Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
+*  **images**: (ArrayList<FFImage>) - ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
 
 The FFImage class has several constructors:
 *  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
@@ -204,6 +204,10 @@ public class MainActivity extends AppCompatActivity {
         @param isLive: A bool indicating which environment your app runs in.  Must match your app’s environment set on http://fujifilmapi.com.
         @param userId: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
         @param images: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+        
+        The FFImage class has several constructors:
+            Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
+            Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
         *---------------------------------------------------------------------------------------
 
         */
