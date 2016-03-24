@@ -3,7 +3,7 @@
 ## Introduction
 This project is a sample application to demonstrate how to integrate with the Fujifilm SPA Android SDK.  
 
-This document provides a tutorial to use the Fujifilm Smart Publishing API (SPA) Android SDK in your Android application.
+This document provides a tutorial to use the Fujifilm SPA Android SDK in your Android application.
 
 ### What is it?
 The Fujifilm Smart Publishing API SDK is a library that you can include in your existing Android application to enable photo product output through Fujifilm.  This provides you with a new revenue stream while providing a new valuable service to your application users.
