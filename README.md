@@ -1,6 +1,8 @@
 # Fujifilm SPA Android SDK Tutorial
 
 ## Introduction
+This project is a sample application to demonstrate how to integrate with the Fujifilm SPA Android SDK.  
+
 This document provides a tutorial to use the Fujifilm Smart Publishing API (SPA) Android SDK in your Android application.
 
 ### What is it?
