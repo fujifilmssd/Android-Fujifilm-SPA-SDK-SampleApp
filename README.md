@@ -27,7 +27,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
 
 ### Android Studio
 #### Android Studio Manual Installation
-1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/Fujifilm_SPA_SDK_Android_DemoApp/libFujifilm_SPA_SDK_Android.a).
+1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
 2. In Android Studio, Click File -> New -> New Module
 3. Select “Import .JAR or .AAR Package” and click “Next”. Then link to the path of the library downloaded in Step 1 and click “Finish”. 
 4. Set your app to be dependent on the FujifilmSPASDK library. Right click on your app in the project browser and click Open Module Settings.
