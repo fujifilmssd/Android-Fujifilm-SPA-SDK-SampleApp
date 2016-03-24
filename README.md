@@ -34,25 +34,25 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
 3. Select “Import .JAR or .AAR Package” and click “Next”. Then link to the path of the library downloaded in Step 1 and click “Finish”. 
 4. Set your app to be dependent on the FujifilmSPASDK library. Right click on your app in the project browser and click Open Module Settings.
 5. In the Project Structure window make sure your app is selected in the modules area to the left, then click on the Dependencies tab. Click the plus sign in the Dependencies window, then click “Module dependency”. Select the FujifilmSPASDK library in the Choose Modules window and press “OK”.
-6. Include Additional Dependencies. 
-    * Add the following dependencies to your project’s app build.gradle file: 
-        * These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
-        * ```Java  
-            compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
-                transitive = true
-            }  
-            compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'  
-            ```
-    * Include the following in your project’s build.gradle file allprojects repositories:
-        *
-            ```Java  
-            allprojects {  
-                repositories {  
-                    jcenter()  
-                    maven { url "https://jitpack.io" }  
-                }  
-            }
-            ```
+6. Include the following dependencies to your project’s app build.gradle file: 
+     * These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
+
+        ```  
+         compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
+             transitive = true
+         }  
+         compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'  
+         ```
+7. Include the following in your project’s build.gradle file allprojects repositories:
+
+   ```Java 
+   allprojects {  
+       repositories {  
+           jcenter()  
+           maven { url "https://jitpack.io" }  
+       }  
+   }
+   ```
 
 #### Android Studio / Gradle
 
@@ -173,7 +173,7 @@ Upload Failed       = 8
 import com.fujifilm.libs.spa.FFImage;
 import com.fujifilm.libs.spa.FujifilmSPA;
 
-/Add the 3 following classes if not already imported
+//Import the 3 following classes if not already imported
 import java.net.URL;
 import java.util.ArrayList;
 import android.content.Intent;
@@ -211,17 +211,18 @@ public class MainActivity extends AppCompatActivity {
 
         //Add public FFImage with public URL
         try {
-        URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
-        images.add(new FFImage(myPublicImageURL));
+            URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+            images.add(new FFImage(myPublicImageURL));
         }catch (MalformedURLException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
 
         //Add public FFImage with local image
         //images.add(new FFImage(image.imageId, image.path)); //local image
 
         //Call checkout which takes the user into Fujifilm's order flow
-        fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, "YOURAPIKEY", false, null, images);
+        //MAKE SURE TO CHANGE "YOUR_APIKEY" TO YOUR APIKEY!
+        fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, "YOUR_APIKEY", false, null, images);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -235,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_CANCELED && data != null) {
                 //int statusCode = //(int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
 
-            //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
+               //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
             }
         }
     }
