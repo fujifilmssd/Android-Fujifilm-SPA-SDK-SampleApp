@@ -25,10 +25,15 @@ There are many new items in this release:
 + Developers using the Fujifilm SPA Android SDK need to sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an Api Key, and setup catalog products and pricing.
 
 ## Integration Instructions
+
+### Step 1: Get API Key
+Sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an API Key, and setup catalog products and pricing.
+
+### Step 2: Include Fujifilm SPA SDK
 To add Fujifilm SPA SDK to your project, you may add it manually, or you may install via Gradle. 
 
-### Android Studio
-#### Android Studio Manual Installation
+#### Android Studio
+##### Android Studio Manual Installation
 1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
 2. In Android Studio, Click File -> New -> New Module
 3. Select “Import .JAR or .AAR Package” and click “Next”. Then link to the path of the library downloaded in Step 1 and click “Finish”. 
@@ -54,7 +59,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
    }
    ```
 
-#### Android Studio / Gradle
+##### Android Studio / Gradle
 
 To install the library in Android Studio using Gradle, you can declare it as dependency in your build.gradle file.  
 
@@ -67,7 +72,7 @@ You can now force Android Studio to sync with your configuration by selecting To
 
 This should download the aar dependency.  
 
-#### Eclipse with ADT
+##### Eclipse with ADT
 1. Download .JAR, and move it to project's lib directory.  
 2. Right click on your project in the package explorer, then click properties.  
 3. Click apply, then click “Java Build Path” on the left. In the libraries tab, press “Add Jars” and direct to the FujifilmSPASDK.jar file.  
@@ -92,9 +97,7 @@ This should download the aar dependency.
 
 Clean and build your project.  
 
-## Implementation Instructions
-
-### Fujifilm SPA SDK Usage
+### Step 4: Integrate with SDK
 
 Import the following classes in your activity:
 
@@ -114,13 +117,13 @@ Create and store a FujifilmSPA Object using the following code:
 FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
 ```
 
-Call checkout and pass in all required parameters to start. This will create a new child application where the checkout process will commence.  
+Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
 
 ```Java
 fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, boolean isLive, String userId, ArrayList<FFImage> images)
 ```
 
-#### Parameters
+#### fujifilmSPA.checkout Parameters
 
 *  **startingActivity**: (Activity) - The parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes  
 *  **requestCode**: (int) - A user-defined request code to handle response messages  
@@ -132,8 +135,6 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 The FFImage class has several constructors:
 *  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
 *  Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
-
-#### Finish Fujifilm SPA SDK
 
 When the Fujifilm SPA SDK is finished, it will return to the parent app. You can check the result in onActivityResult(). The requestCode for the result will be the same as the code that was passed in when the checkout method was called.  
 
