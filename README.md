@@ -97,7 +97,7 @@ This should download the aar dependency.
 
 Clean and build your project.  
 
-### Step 4: Integrate with SDK
+### Step 3: Integrate with SDK
 
 Import the following classes in your activity:
 
