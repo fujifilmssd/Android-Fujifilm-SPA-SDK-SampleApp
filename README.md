@@ -121,18 +121,51 @@ Clean and build your project.
    import java.util.ArrayList;
    import java.net.MalformedURLException;
    import android.content.Intent;
+   import android.widget.Toast;
    ```
 
-2. Create and store a FujifilmSPA Object using the following code:  
+2. Set your Fujifilm SPA SDK static constants
+   ```Java 
+    //user defined request code for Fujifilm SPA SDK
+    private static final int FujifilmSPASDK_INTENT = 333;
+
+    //Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
+    private static final String FujifilmSPASDK_APIKey = "5cb79d2191874aca879e2c9ed7d5747c";
+
+    //A bool indicating which environment your app runs in.  Must match your app’s (apiKey) environment set on http://fujifilmapi.com.
+    private static final Boolean FujifilmSPASDK_IsLive = false;
+   ```
+3. Create a FujifilmSPA Object using the following code:  
 
    ```Java
    FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
    ```
 
-3. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
+4. Create an ArrayList of images to pass to the SDK. The ArrayList must be an array of FFImage objects. 
+    ```Java
+   //FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+   ArrayList<FFImage> images = new ArrayList<>();
+   
+   //Add a FFImage with public URL
+   try {
+         URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+         images.add(new FFImage(myPublicImageURL));
+     }catch (MalformedURLException e) {
+         e.printStackTrace();
+     }
+        
+      //Add public FFImage with local image
+      //images.add(new FFImage(image.imageId, image.path)); //local image
+   ```
+5. Set an optional userId. 
+    ```Java
+     //Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
+     String userId = null;
+   ```
+6. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
 
    ```Java
-   fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, boolean isLive, String userId, ArrayList<FFImage> images)
+  fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, FujifilmSPASDK_APIKey, FujifilmSPASDK_IsLive, userId, images);
    ```
 
     ##### fujifilmSPA.checkout Parameters
@@ -196,11 +229,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.net.MalformedURLException;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
-    private ArrayList<FFImage> images;
+    //user defined request code for Fujifilm SPA SDK
+    private static final int FujifilmSPASDK_INTENT = 333;
+
+    //Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
+    private static final String FujifilmSPASDK_APIKey = "5cb79d2191874aca879e2c9ed7d5747c";
+
+    //A bool indicating which environment your app runs in.  Must match your app’s environment set on http://fujifilmapi.com.
+    private static final Boolean FujifilmSPASDK_IsLive = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
         @param isLive: A bool indicating which environment your app runs in.  Must match your app’s environment set on http://fujifilmapi.com.
         @param userId: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
         @param images: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
-        
+
         The FFImage class has several constructors:
             Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
             Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
@@ -229,10 +269,10 @@ public class MainActivity extends AppCompatActivity {
         //Get Fujifilm SPA SDK singleton class instance
         FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
 
-        //Create Array of images
-        images = new ArrayList<>();
+        //Create ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+        ArrayList<FFImage> images = new ArrayList<>();
 
-        //Add public FFImage with public URL
+        //Add a FFImage with public URL
         try {
             URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
             images.add(new FFImage(myPublicImageURL));
@@ -243,9 +283,11 @@ public class MainActivity extends AppCompatActivity {
         //Add public FFImage with local image
         //images.add(new FFImage(image.imageId, image.path)); //local image
 
+        //Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
+        String userId = null;
+
         //Call checkout which takes the user into Fujifilm's order flow
-        //MAKE SURE TO CHANGE "YOUR_APIKEY" TO YOUR APIKEY!
-        fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, "YOUR_APIKEY", false, null, images);
+        fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, FujifilmSPASDK_APIKey, FujifilmSPASDK_IsLive, userId, images);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -253,13 +295,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == FujifilmSPASDK_INTENT) {
             if (resultCode == RESULT_OK) {
-                //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
             }
             //If a child app fails for any reason, the parent app will receive RESULT_CANCELED
             if (resultCode == RESULT_CANCELED && data != null) {
-                //int statusCode = //(int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
+                int statusCode = (int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
 
-               //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
             }
         }
     }
