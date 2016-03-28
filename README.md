@@ -116,9 +116,10 @@ Clean and build your project.
    import com.fujifilm.libs.spa.FFImage;
    import com.fujifilm.libs.spa.FujifilmSPA;
    
-   //Add the 3 following classes, if not already imported
+   //Add the following classes, if not already imported
    import java.net.URL;
    import java.util.ArrayList;
+   import java.net.MalformedURLException;
    import android.content.Intent;
    ```
 
@@ -190,9 +191,10 @@ Clean and build your project.
 import com.fujifilm.libs.spa.FFImage;
 import com.fujifilm.libs.spa.FujifilmSPA;
 
-//Import the 3 following classes if not already imported
+//Import the following classes if not already imported
 import java.net.URL;
 import java.util.ArrayList;
+import java.net.MalformedURLException;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
