@@ -143,19 +143,19 @@ Clean and build your project.
 
 4. Create an ArrayList of images to pass to the SDK. The ArrayList must be an array of FFImage objects. 
     ```Java
-   //FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
-   ArrayList<FFImage> images = new ArrayList<>();
-   
-   //Add a FFImage with public URL
-   try {
-      URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
-      images.add(new FFImage(myPublicImageURL));
-   }catch (MalformedURLException e) {
-      e.printStackTrace();
-   }
-        
-   //Add public FFImage with local image
-   //images.add(new FFImage(image.imageId, image.path)); //local image
+     //FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
+     ArrayList<FFImage> images = new ArrayList<>();
+
+     //Add a FFImage with public URL
+     try {
+         URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+         images.add(new FFImage(myPublicImageURL));
+     }catch (MalformedURLException e) {
+         e.printStackTrace();
+     }
+
+     //Add public FFImage with local image
+     //images.add(new FFImage(image.imageId, image.path)); //local image
    ```
 5. Set an optional userId.
    ```Java
