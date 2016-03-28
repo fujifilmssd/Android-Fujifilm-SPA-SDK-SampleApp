@@ -33,6 +33,26 @@ Sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), c
 To add Fujifilm SPA SDK to your project, you may add it manually, or you may install via Gradle. 
 
 #### Android Studio
+
+##### Android Studio / Gradle
+1. Include jcenter() and maven { url "https://jitpack.io" } in your project level build.gradle file:
+
+   ```Java 
+   allprojects {  
+       repositories {  
+           jcenter()  
+           maven { url "https://jitpack.io" }  
+       }  
+   }
+   ```
+2. To install the library in Android Studio using Gradle, you can declare it as dependency in your build.gradle file.  
+
+```Java 
+dependencies {
+    compile 'com.fujifilm:Fujifilm.SPA.SDK:1.0'
+}
+```
+
 ##### Android Studio Manual Installation
 1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
 2. In Android Studio, Click File -> New -> New Module
@@ -59,24 +79,6 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
    }
    ```
 
-##### Android Studio / Gradle
-1. Include jcenter() and maven { url "https://jitpack.io" } in your project level build.gradle file:
-
-   ```Java 
-   allprojects {  
-       repositories {  
-           jcenter()  
-           maven { url "https://jitpack.io" }  
-       }  
-   }
-   ```
-2. To install the library in Android Studio using Gradle, you can declare it as dependency in your build.gradle file.  
-
-```Java 
-dependencies {
-    compile 'com.fujifilm:Fujifilm.SPA.SDK:1.0'
-}
-```
 You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files  
 
 This should download the dependency.  
