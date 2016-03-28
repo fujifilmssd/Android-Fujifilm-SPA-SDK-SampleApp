@@ -47,11 +47,11 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
    ```
 2. To install the library in Android Studio using Gradle, you can declare it as dependency in your build.gradle file.  
 
-```Java 
-dependencies {
-    compile 'com.fujifilm:Fujifilm.SPA.SDK:1.0'
-}
-```
+   ```Java 
+   dependencies {
+       compile 'com.fujifilm:Fujifilm.SPA.SDK:1.0'
+   }
+   ```
 
 3. You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files  
 
