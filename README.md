@@ -53,7 +53,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
    }
    ```
 
-3. You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files  
+3. You can now force Android Studio to sync with your configuration by selecting *Tools -> Android -> Sync Project with Gradle Files*
 
 This should download the dependency. 
 
