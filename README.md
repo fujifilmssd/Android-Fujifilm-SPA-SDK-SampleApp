@@ -112,76 +112,77 @@ Clean and build your project.
 
 1. Import the following classes in your activity:
 
-```Java
-import com.fujifilm.libs.spa.FFImage;
-import com.fujifilm.libs.spa.FujifilmSPA;
-
-//Add the 3 following classes, if not already imported
-import java.net.URL;
-import java.util.ArrayList;
-import android.content.Intent;
-```
+   ```Java
+   import com.fujifilm.libs.spa.FFImage;
+   import com.fujifilm.libs.spa.FujifilmSPA;
+   
+   //Add the 3 following classes, if not already imported
+   import java.net.URL;
+   import java.util.ArrayList;
+   import android.content.Intent;
+   ```
 
 2. Create and store a FujifilmSPA Object using the following code:  
 
-```Java
-FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
-```
+   ```Java
+   FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
+   ```
 
 3. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
 
-```Java
-fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, boolean isLive, String userId, ArrayList<FFImage> images)
-```
+   ```Java
+   fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, boolean isLive, String userId, ArrayList<FFImage> images)
+   ```
 
-#### fujifilmSPA.checkout Parameters
+    ##### fujifilmSPA.checkout Parameters
+    
+    *  **startingActivity**: (Activity) - The parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes  
+    *  **requestCode**: (int) - A user-defined request code to handle response messages  
+    *  **apiKey**:  (String) - Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
+    *  **isLive**: (boolean) - Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
+    *  **userId**: (String) - Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
+    *  **images**: (ArrayList<FFImage>) - ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
 
-*  **startingActivity**: (Activity) - The parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes  
-*  **requestCode**: (int) - A user-defined request code to handle response messages  
-*  **apiKey**:  (String) - Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com  
-*  **isLive**: (boolean) - Boolean value that indicates which environment your app runs in, must match your app’s environment set on http://fujifilmapi.com.  
-*  **userId**: (String) - Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
-*  **images**: (ArrayList<FFImage>) - ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
-
-The FFImage class has several constructors:
-*  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
-*  Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
+    The FFImage class has several constructors:
+    *  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
+    *  Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
+  
 
 4. When the Fujifilm SPA SDK is finished, it will return to the parent app. You can check the result in onActivityResult(). The requestCode for the result will be the same as the code that was passed in when the checkout method was called.  
 
-```Java
-protected void onActivityResult(int requestCode, int resultCode, Intent data)
-{
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if(requestCode == FujifilmSPASDK_INTENT){
-        //FujifilmSPASDK_INTENT is the requestCode passed in when checkout was called.
-        //If the user successfully completes an order, the resultCode will be RESULT_OK
-        if(resultCode == RESULT_OK){
-            //user successfully completes an order.
-            //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS), Toast.LENGTH_LONG).show();
-        }
-        //If the user cancels the order or the SDK fails, the resultCode will be RESULT_CANCELED
-        if(resultCode == RESULT_CANCELED){
-            //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS),Toast.LENGTH_LONG).show();
+    ```Java
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+    
+        if(requestCode == FujifilmSPASDK_INTENT){
+            //FujifilmSPASDK_INTENT is the requestCode passed in when checkout was called.
+            //If the user successfully completes an order, the resultCode will be RESULT_OK
+            if(resultCode == RESULT_OK){
+                //user successfully completes an order.
+                //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS), Toast.LENGTH_LONG).show();
+            }
+            //If the user cancels the order or the SDK fails, the resultCode will be RESULT_CANCELED
+            if(resultCode == RESULT_CANCELED){
+                //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS),Toast.LENGTH_LONG).show();
+            }
         }
     }
-}
-```
+    ```
 
-In the case of a successful purchase, the result code of the response will be RESULT_OK. for any other case (either through a user cancel or an error), the result code will be RESULT_CANCELED. If the result is RESULT_CANCELED, the EXTRA_STATUS field will define the reason for a cancellation, which can be used to check whether the user cancelled the order, or what error caused the SDK to close (such as no selected images being usable).  
-
-The status code will be one of the following values:
-
-*  Fatal Error         = 0  
-*  No Images Uploaded  = 1  
-*  No Internet         = 2  
-*  Invalid API Key     = 3  
-*  User Cancelled      = 4  
-*  No Valid Images     = 5  
-*  Time Out            = 6  
-*  Order Complete      = 7  
-*  Upload Failed       = 8  
+    In the case of a successful purchase, the result code of the response will be RESULT_OK. for any other case (either through a user cancel or an error), the result code will be RESULT_CANCELED. If the result is RESULT_CANCELED, the EXTRA_STATUS field will define the reason for a cancellation, which can be used to check whether the user cancelled the order, or what error caused the SDK to close (such as no selected images being usable).  
+    
+    The status code will be one of the following values:
+    
+    *  Fatal Error         = 0  
+    *  No Images Uploaded  = 1  
+    *  No Internet         = 2  
+    *  Invalid API Key     = 3  
+    *  User Cancelled      = 4  
+    *  No Valid Images     = 5  
+    *  Time Out            = 6  
+    *  Order Complete      = 7  
+    *  Upload Failed       = 8  
 
 #### Full Example
 
