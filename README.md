@@ -53,6 +53,10 @@ dependencies {
 }
 ```
 
+You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files  
+
+This should download the dependency. 
+
 ##### Android Studio Manual Installation
 1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
 2. In Android Studio, Click File -> New -> New Module
@@ -78,10 +82,6 @@ dependencies {
        }  
    }
    ```
-
-You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files  
-
-This should download the dependency.  
 
 ##### Eclipse with ADT
 1. Download .JAR, and move it to project's lib directory.  
