@@ -49,7 +49,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
 
    ```Java 
    dependencies {
-       compile 'com.fujifilmssd:fujifilm.spa.sdk:1.0.1'
+       compile 'com.fujifilmssd:fujifilm.spa.sdk:1.0.2'
    }
    ```
 
@@ -124,16 +124,16 @@ Clean and build your project.
    import android.widget.Toast;
    ```
 
-2. Set your Fujifilm SPA SDK static constants
+2. Set your Fujifilm SPA SDK static constants in your MainActivity
    ```Java 
-    //user defined request code for Fujifilm SPA SDK
-    private static final int FujifilmSPASDK_INTENT = 333;
+   //user defined request code for Fujifilm SPA SDK
+   private static final int FujifilmSPASDK_INTENT = 333;
 
-    //Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
-    private static final String FujifilmSPASDK_APIKey = "5cb79d2191874aca879e2c9ed7d5747c";
+   //Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
+   private static final String FujifilmSPASDK_APIKey = "5cb79d2191874aca879e2c9ed7d5747c";
 
-    //A bool indicating which environment your app runs in.  Must match your app’s (apiKey) environment set on http://fujifilmapi.com.
-    private static final Boolean FujifilmSPASDK_IsLive = false;
+   //A bool indicating which environment your app runs in.  Must match your app’s (apiKey) environment set on http://fujifilmapi.com.
+   private static final Boolean FujifilmSPASDK_IsLive = false;
    ```
 3. Create a FujifilmSPA Object using the following code:  
 
@@ -148,24 +148,24 @@ Clean and build your project.
    
    //Add a FFImage with public URL
    try {
-         URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
-         images.add(new FFImage(myPublicImageURL));
-     }catch (MalformedURLException e) {
-         e.printStackTrace();
-     }
+      URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+      images.add(new FFImage(myPublicImageURL));
+   }catch (MalformedURLException e) {
+      e.printStackTrace();
+   }
         
-      //Add public FFImage with local image
-      //images.add(new FFImage(image.imageId, image.path)); //local image
+   //Add public FFImage with local image
+   //images.add(new FFImage(image.imageId, image.path)); //local image
    ```
-5. Set an optional userId. 
-    ```Java
-     //Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
-     String userId = null;
-   ```
-6. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
-
+5. Set an optional userId.
    ```Java
-  fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, FujifilmSPASDK_APIKey, FujifilmSPASDK_IsLive, userId, images);
+   //Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
+   String userId = null;
+   ```
+
+6. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.
+   ```Java
+   fujifilmSPA.checkout(this, FujifilmSPASDK_INTENT, FujifilmSPASDK_APIKey, FujifilmSPASDK_IsLive, userId, images);
    ```
 
     ##### fujifilmSPA.checkout Parameters
@@ -188,17 +188,16 @@ Clean and build your project.
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-    
-        if(requestCode == FujifilmSPASDK_INTENT){
-            //FujifilmSPASDK_INTENT is the requestCode passed in when checkout was called.
-            //If the user successfully completes an order, the resultCode will be RESULT_OK
-            if(resultCode == RESULT_OK){
-                //user successfully completes an order.
-                //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS), Toast.LENGTH_LONG).show();
+
+        if (requestCode == FujifilmSPASDK_INTENT) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
             }
-            //If the user cancels the order or the SDK fails, the resultCode will be RESULT_CANCELED
-            if(resultCode == RESULT_CANCELED){
-                //Toast.makeText(this.getApplicationContext(),data.getStringExtra(FujifilmS//PA.EXTRA_STATUS),Toast.LENGTH_LONG).show();
+            //If a child app fails for any reason, the parent app will receive RESULT_CANCELED
+            if (resultCode == RESULT_CANCELED && data != null) {
+                int statusCode = (int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
+
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
             }
         }
     }
