@@ -110,7 +110,7 @@ Clean and build your project.
 
 ### Step 3: Integrate with SDK
 
-Import the following classes in your activity:
+1. Import the following classes in your activity:
 
 ```Java
 import com.fujifilm.libs.spa.FFImage;
@@ -122,13 +122,13 @@ import java.util.ArrayList;
 import android.content.Intent;
 ```
 
-Create and store a FujifilmSPA Object using the following code:  
+2. Create and store a FujifilmSPA Object using the following code:  
 
 ```Java
 FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
 ```
 
-Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
+3. Call checkout and pass in all required parameters to start (userId is optional). This will create a new child application where the checkout process will commence.  
 
 ```Java
 fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, boolean isLive, String userId, ArrayList<FFImage> images)
@@ -147,7 +147,7 @@ The FFImage class has several constructors:
 *  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
 *  Public url: images.add(new FFImage(myLocalImage.imageId, myLocalImage.path))
 
-When the Fujifilm SPA SDK is finished, it will return to the parent app. You can check the result in onActivityResult(). The requestCode for the result will be the same as the code that was passed in when the checkout method was called.  
+4. When the Fujifilm SPA SDK is finished, it will return to the parent app. You can check the result in onActivityResult(). The requestCode for the result will be the same as the code that was passed in when the checkout method was called.  
 
 ```Java
 protected void onActivityResult(int requestCode, int resultCode, Intent data)
