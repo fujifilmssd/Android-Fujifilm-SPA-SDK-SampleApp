@@ -49,7 +49,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
 
    ```Java 
    dependencies {
-       compile 'com.fujifilm:Fujifilm.SPA.SDK:1.0'
+       compile 'com.fujifilmssd:fujifilm.spa.sdk:1.0.1'
    }
    ```
 
