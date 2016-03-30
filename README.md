@@ -45,7 +45,7 @@ To add Fujifilm SPA SDK to your project, you may add it manually, or you may ins
        }  
    }
    ```
-2. To install the library in Android Studio using Gradle, you can declare it as dependency in your build.gradle file:  
+2. Declare our library as a dependency in your build.gradle file:  
 
    ```Java 
    dependencies {
