@@ -116,7 +116,7 @@ Clean and build your project.
    import com.fujifilm.libs.spa.FFImage;
    import com.fujifilm.libs.spa.FujifilmSPA;
    
-   //Import the following classes if not already imported
+   //Import the following classes, if not already imported
    import java.net.URL;
    import java.util.ArrayList;
    import java.net.MalformedURLException;
@@ -223,7 +223,7 @@ Clean and build your project.
 import com.fujifilm.libs.spa.FFImage;
 import com.fujifilm.libs.spa.FujifilmSPA;
 
-//Import the following classes if not already imported
+//Import the following classes, if not already imported
 import java.net.URL;
 import java.util.ArrayList;
 import java.net.MalformedURLException;
