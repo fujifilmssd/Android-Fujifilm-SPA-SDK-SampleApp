@@ -4,8 +4,7 @@ import android.app.Activity;
 
 /**
  * Created by rnavinchand on 1/4/16.
- * Fujifilm SSD
- * rnavinchand@fujifim.com
+ * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  *
  * This is a sample enum containing possible error messages returned by SPA Mobile Web. This may need to
  * be updated as more error codes are added.

@@ -15,8 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Created by rnavinchand on 12/14/15.
- * Fujifilm SSD
- * rnavinchand@fujifim.com
+ * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  */
 public class ImageCarouselAdapter extends PagerAdapter {
     private ArrayList<FFImage> images;

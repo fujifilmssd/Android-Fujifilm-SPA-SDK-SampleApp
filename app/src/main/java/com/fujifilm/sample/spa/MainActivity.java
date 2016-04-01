@@ -43,8 +43,7 @@ import java.util.ArrayList;
 
 /**
  * Created by rnavinchand on 12/11/15.
- * Fujifilm SSD
- * rnavinchand@fujifim.com
+ * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  */
 public class MainActivity extends AppCompatActivity implements Picker.PickListener {
 
