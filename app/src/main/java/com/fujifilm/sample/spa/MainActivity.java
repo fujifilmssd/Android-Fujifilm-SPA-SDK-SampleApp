@@ -355,9 +355,7 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     @Override
     public void onPickedSuccessfully(final ArrayList<ImageEntry> imagePaths) {
         for (ImageEntry image : imagePaths) {
-            //Creating Fujifilm image objects, you could can use any of the following constructors below
-            //images.add(new FFImage(image.path));
-            images.add(new FFImage(image.imageId, image.path));
+            images.add(new FFImage(image.path));
         }
         updateImageCarousel();
     }
