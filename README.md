@@ -178,8 +178,8 @@ Clean and build your project.
     *  **images**: (ArrayList<FFImage>) - ArrayList of FFImage objects. FFImage can be a local image (path) or public url (https://). Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
 
     The FFImage class has several constructors:
-    *  Local image: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
-    *  Public url: images.add(new FFImage(myLocalImage.path))
+    *  Public url: images.add(new FFImage("https://someURLtoPublicImage.jpg"))
+    *  Local Path: images.add(new FFImage(myLocalImage.path))
   
 
 4. When the Fujifilm SPA SDK is finished, it will return to the parent app. You can check the result in onActivityResult(). The requestCode for the result will be the same as the code that was passed in when the checkout method was called.  
