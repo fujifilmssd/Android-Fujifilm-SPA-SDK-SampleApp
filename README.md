@@ -71,7 +71,6 @@ Skip to [Implementation Instructions](#implementation-instructions) section belo
             allprojects {
                 repositories {
                     jcenter()
-                    maven { url "https://jitpack.io" }
                 }
             }
 
@@ -183,28 +182,28 @@ In the case of a successful purchase, the result code of the response will be RE
 
 The status code will be one of the following values:
 
-Fatal Error         = 0
-No Images Uploaded  = 1
-No Internet         = 2
-Invalid API Key     = 3
-User Cancelled      = 4
-No Valid Images     = 5
-Time Out            = 6
-Order Complete      = 7
-Upload Failed       = 8
-User ID Invalid Format= 9
-Promo Code Invalid Format= 10
+Fatal Error         = 0  
+No Images Uploaded  = 1  
+No Internet         = 2  
+Invalid API Key     = 3  
+User Cancelled      = 4  
+No Valid Images     = 5  
+Time Out            = 6  
+Order Complete      = 7  
+Upload Failed       = 8  
+User ID Invalid Format= 9  
+Promo Code Invalid Format= 10  
 
 In addition, a promotion code that is in a valid format but is otherwise invalid will still allow the SDK to run. In this case, the intent will include a field EXTRA_PROMO_ERROR, explaining the reason why the promotion is invalid.
 
 Possible values are as follows:
 
-Promotion Expired            = 0
-Promotion Not Yet Activated  = 1
-Invalid Discount             = 2
-Promotion Disabled           = 3
-Promotion Does Not Exist     = 4
-Fatal (default)              = 5
+Promotion Expired            = 0  
+Promotion Not Yet Activated  = 1  
+Invalid Discount             = 2  
+Promotion Disabled           = 3  
+Promotion Does Not Exist     = 4  
+Fatal (default)              = 5  
 
 
 #### Full Example
@@ -212,22 +211,21 @@ Fatal (default)              = 5
 import com.fujifilm.libs.spa.FFImage;
 import com.fujifilm.libs.spa.FujifilmSPA;
 
-//Add the 3 following classes if not already imported
+//Add the following classes, if not already imported
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
 import android.content.Intent;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
     private ArrayList<FFImage> images;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Get Fujifilm SPA SDK singleton class instance
         FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
 
         //Create Array of images
@@ -245,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
         //images.add(new FFImage(image.imageId, image.path)); //local image
 
         //Call checkout which takes the user into Fujifilm's order flow
-        fujifilmSPA.checkout(MainActivity.this, FujifilmSPASDK_INTENT, "YOUR_API_KEY", FujifilmSPA.SdkEnvironment.Stage, "USER_ID", true, images, "PROMO_CODE", Fujifilm.SPA.LaunchPage.Home, null);
+        fujifilmSPA.checkout(MainActivity.this, FujifilmSPASDK_INTENT, "YOUR_API_KEY", FujifilmSPA.SdkEnvironment.Preview, null, true, images, "", FujifilmSPA.LaunchPage.Home, null);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -253,16 +251,16 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == FujifilmSPASDK_INTENT) {
             if (resultCode == RESULT_OK) {
-                //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
             }
             //If a child app fails for any reason, the parent app will receive RESULT_CANCELED
             if (resultCode == RESULT_CANCELED && data != null) {
-                //int statusCode = //(int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
+                int statusCode = (int)data.getSerializableExtra(FujifilmSPA.EXTRA_STATUS_CODE);
 
-                //Toast.makeText(this.getApplicationContext(), //data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
             }
             if (data.hasExtra(FujifilmSPA.EXTRA_PROMO_ERROR)) {
-                //Toast.makeText(this.getApplicationContext(),String.valueOf(data.getSerializableExtra(FujifilmSPA.EXTRA_PROMO_ERROR)), Toast.LENGTH_LONG).show();
+                Toast.makeText(this.getApplicationContext(),String.valueOf(data.getSerializableExtra(FujifilmSPA.EXTRA_PROMO_ERROR)), Toast.LENGTH_LONG).show();
             }
         }
     }
