@@ -139,8 +139,8 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 
 #### Parameters
 
-**startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
-**requestCode**: a user-defined request code to handle response messages. An integer that will be sent back in 'OnActivityResult' when the FujifilmSPASDKActivity finishes  
+**startingActivity**: The parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
+**requestCode**: A user-defined request code to handle response messages. An integer that will be sent back in 'OnActivityResult' when the FujifilmSPASDKActivity finishes  
 **apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com. This apiKey is environment specific  
 **environment**: Sets the environment to use. The apiKey must match your app’s environment set on http://fujifilmapi.com.  
 **userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
