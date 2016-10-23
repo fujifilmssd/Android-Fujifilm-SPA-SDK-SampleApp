@@ -59,8 +59,8 @@ Skip to [Implementation Instructions](#implementation-instructions) section belo
 4. Set your app to be dependent on the FujifilmSPASDK library. Right click on your app in the project browser and click Open Module Settings.
 5. In the Project Structure window make sure your app is selected in the modules area to the left, then click on the Dependencies tab. Click the plus sign in the Dependencies window, then click “Module dependency”. Select the FujifilmSPASDK library in the Choose Modules window and press “OK”.
 6. Include Additional Dependencies.
-    * Add the following dependencies to your app’s app build.gradle file:
-        * These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
+    * Add the following dependencies to your app’s app build.gradle file. These should be included above the ‘:fujifilm.spa.sdk’ project dependency:
+    
             compile('com.afollestad.material-dialogs:core:0.8.6.2') {
                 transitive = true
             }
