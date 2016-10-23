@@ -47,9 +47,12 @@ allprojects {
 ```
 You can now force Android Studio to sync with your configuration by selecting Tools -> Android -> Sync Project with Gradle Files
 
-This should download the aar dependency.
+Skip to [Implementation Instructions](#implementation-instructions) section below
 
 ### Android Studio - Manual Installation
+
+##### Skip this section if you are using Gradle!
+
 1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
 2. In Android Studio, Click File -> New -> New Module
 3. Select “Import .JAR or .AAR Package” and click “Next”. Then link to the path of the library downloaded in Step 1 and click “Finish”.
@@ -59,7 +62,7 @@ This should download the aar dependency.
     * Add the following dependencies to your project’s app build.gradle file:
         * These should be included above the ‘:fujifilm.spa.sdk’ project dependency.
         * ```Java
-            compile('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
+            compile('com.afollestad.material-dialogs:core:0.8.6.2') {
                 transitive = true
             }
             compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
@@ -75,7 +78,14 @@ This should download the aar dependency.
             }
             ```
 
+
+
+Skip to [Implementation Instructions](#implementation-instructions) section below
+
 #### Eclipse with ADT
+
+##### Skip this section if you are using Android Studio!
+
 1. Download .JAR, and move it to project's lib directory.
 2. Right click on your project in the package explorer, then click properties.
 3. Click apply, then click “Java Build Path” on the left. In the libraries tab, press “Add Jars” and direct to the FujifilmSPASDK.jar file.
