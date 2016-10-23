@@ -5,183 +5,380 @@
     android:layout_height="fill_parent"
     android:background="@color/fuji_alternate_background"
     android:orientation="vertical"
+    android:weightSum="100"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="85"
+        android:isScrollContainer="false">
 
-        <include layout="@layout/carousel_background" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:minHeight="@dimen/fuji_settings_container_minHeight"
+            android:weightSum="5">
+
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".75"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/required_label_txt"
+                    android:id="@+id/requiredLabel"
+                    android:textColor="@color/fuji_section_header_font_color"
+                    android:layout_gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/switch_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/bottom_border">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/environment_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/fuji_text_size_medium"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="20dp" />
+
+
+                <RadioGroup
+                    android:id="@+id/toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:checkedButton="@+id/test"
+                    android:orientation="horizontal"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentLeft="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp">
+
+                    <RadioButton
+                        android:id="@+id/live"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/radio_selector_left"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/live_txt"
+                        android:textColor="@android:color/white" />
+
+                    <RadioButton
+                        android:id="@+id/test"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/radio_selector_right"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/test_txt"
+                        android:textColor="@android:color/white" />
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
+
+                <EditText
+                    android:id="@+id/apiKey"
+                    style="@style/Theme.Fujifilm.EditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/api_txt"
+                    android:inputType="text"
+                    android:text="@string/test_api_key"
+                    android:textIsSelectable="false"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginTop="0dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!--android:layout_marginTop="20dp"-->
+            <!--/>-->
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".75">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/optional_label_txt"
+                    android:id="@+id/optionalLabel"
+                    android:textColor="@color/fuji_section_header_font_color"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginTop="20dp" />
+            </RelativeLayout>
+
+            <!--android:layout_marginTop="30dp"-->
+            <!--/>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:background="@drawable/bottom_border">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/retain_user_info_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="@dimen/fuji_text_size_medium"
+                    app:showText="false"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/retain_user_info_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/fuji_text_size_medium"
+                    android:layout_alignBaseline="@+id/retain_user_info_switch"
+                    android:layout_marginLeft="20dp" />
+            </RelativeLayout>
+
+            <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--style="@style/Theme.Fujifilm.TextButton"-->
+            <!--android:text="@string/launch_options_txt"-->
+            <!--android:background="@drawable/bottom_border"-->
+            <!--android:onClick="goToLaunchOptions"-->
+            <!--/>-->
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
+
+                <EditText
+                    android:id="@+id/user_id"
+                    style="@style/Theme.Fujifilm.EditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/user_id_txt"
+                    android:inputType="text"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginTop="0dp"
+                    android:layout_centerVertical="true" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
+
+                <EditText
+                    android:id="@+id/promo_code"
+                    style="@style/Theme.Fujifilm.EditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/promo_code_txt"
+                    android:inputType="text"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginTop="0dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
+
+                <EditText
+                    android:id="@+id/deep_link"
+                    style="@style/Theme.Fujifilm.EditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/launch_link_txt"
+                    android:inputType="text"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginTop="0dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:minHeight="55dp">
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+
+        <HorizontalScrollView
+            android:id="@+id/image_scroller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/image_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <!--<include layout="@layout/carousel_background" />-->
+
+                <!--
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_placeholder"/>
+                -->
+                -
+            </LinearLayout>
+        </HorizontalScrollView>
+
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight=".80">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TextView
-                android:id="@+id/txtview_image_count"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@color/fuji_transparent_background"
-                android:gravity="center_vertical|right"
-                android:padding="12dp"
-                android:textColor="@android:color/white" />
+                android:layout_height="match_parent"/>
 
         </FrameLayout>
 
-
+        <!--
         <com.viewpagerindicator.CirclePageIndicator
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:padding="10dip"
+            android:padding="8dip"
             app:fillColor="@color/fuji_black"
             app:pageColor="@color/fuji_secondary_font_color"
             app:radius="4dp"
             app:strokeWidth="0dp" />
+        -->
 
     </LinearLayout>
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-
-        <RelativeLayout
-            android:id="@+id/switch_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/toggle"
-                android:layout_alignTop="@+id/toggle"
-                android:text="@string/environment_txt"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/fuji_text_size_medium" />
-
-
-            <RadioGroup
-                android:id="@+id/toggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:checkedButton="@+id/test"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/live"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/radio_selector_left"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="5dp"
-                    android:text="@string/live_txt"
-                    android:textColor="@android:color/white" />
-
-                <RadioButton
-                    android:id="@+id/test"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/radio_selector_right"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="5dp"
-                    android:text="@string/test_txt"
-                    android:textColor="@android:color/white" />
-            </RadioGroup>
-
-        </RelativeLayout>
-
-        <EditText
-            android:id="@+id/apiKey"
-            style="@style/Theme.Fujifilm.EditText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/switch_container"
-            android:hint="@string/api_txt"
-            android:inputType="text"
-            android:text="@string/test_api_key"
-            android:textIsSelectable="false" />
-
-        <EditText
-        android:id="@+id/user_id"
-        style="@style/Theme.Fujifilm.EditText"
+    <LinearLayout
+        android:id="@+id/buttonPanel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/apiKey"
-        android:hint="@string/user_id_txt"
-        android:inputType="none" />
+        android:background="@android:color/white"
+        android:gravity="center">
 
         <LinearLayout
-            android:id="@+id/buttonPanel"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@android:color/white"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/add_url_btn"
-                style="@style/Theme.Fujifilm.ActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_link_black_36dp"
-                android:onClick="addURL"
-                android:text="@string/add_url_txt" />
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/pick_image_btn"
                 style="@style/Theme.Fujifilm.ActionButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_image_black_36dp"
                 android:onClick="selectImages"
-                android:text="@string/pick_image_txt" />
+                android:text="@string/pick_image_txt"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/clear_images_btn"
                 style="@style/Theme.Fujifilm.ActionButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/ic_clear_black_36dp"
                 android:onClick="clearImages"
-                android:text="@string/clear_images_txt" />
-
-            <Button
-                android:id="@+id/order_btn"
-                style="@style/Theme.Fujifilm.ActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_done_black_36dp"
-                android:onClick="placeOrder"
-                android:text="@string/done_txt" />
+                android:text="@string/clear_images_txt"
+                android:layout_weight="1" />
 
         </LinearLayout>
-    </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/order_btn"
+        style="@style/Theme.Fujifilm.ActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="placeOrder"
+        android:text="@string/order_txt"
+        android:background="#212121"
+        android:textColor="#ffffff"
+        android:elegantTextHeight="true" />
 
 </LinearLayout>

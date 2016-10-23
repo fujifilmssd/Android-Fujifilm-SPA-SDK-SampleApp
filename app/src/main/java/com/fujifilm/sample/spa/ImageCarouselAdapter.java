@@ -14,7 +14,6 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import java.util.ArrayList;
 
 /**
- * Created by rnavinchand on 12/14/15.
  * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  */
 public class ImageCarouselAdapter extends PagerAdapter {

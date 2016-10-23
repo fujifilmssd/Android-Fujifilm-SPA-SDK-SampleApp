@@ -1,31 +1,45 @@
 package com.fujifilm.sample.spa;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.fujifilm.libs.spa.FujifilmSPA;
 import com.fujifilm.libs.spa.FFImage;
+import com.fujifilm.libs.spa.FujifilmSPA;
+import com.fujifilm.libs.spa.models.FFImageType;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -37,32 +51,61 @@ import com.viewpagerindicator.CirclePageIndicator;
 import net.yazeed44.imagepicker.model.ImageEntry;
 import net.yazeed44.imagepicker.util.Picker;
 
+import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by rnavinchand on 12/11/15.
  * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  */
 public class MainActivity extends AppCompatActivity implements Picker.PickListener {
 
-    private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
+    private static final int SPA_INTENT = 333; //user defined request code for SPA
     private ArrayList<FFImage> images;
 
     private String apiKey;
-    private ViewPager mViewPager;
+    //private ViewPager mViewPager;
     private CirclePageIndicator mIndicator;
     private Context mContext = this;
-    //RNAV: You only use lower 8 bits for a requestCode, i.e 0 - 255 in decimal
+    //You only use lower 8 bits for a requestCode, i.e 0 - 255 in decimal
     private static final int PERMISSIONS_REQUEST_READ_STORAGE = 255;
     private View mCarouselBackGround;
     private TextView mImageCountTextView;
 
+    private LinearLayout mImageContainer;
+    private HorizontalScrollView mImageScroller;
+    private ArrayList<ImageView> imageViews;
+    private ArrayList<Boolean> imageIsVisible;
+    private int lastCenterImageIndex = 0;
+    private CountDownTimer scrollUpdateTimer;
+    private boolean isScrollListenerAdded = false;
+
     private static String TAG = "fujifilm.spa.sdk.sample";
+
+    private String landingPage;
+    private String catalog;
 
     private Picker mPicker;
 
+    private boolean onMainPage;
+    private android.support.v7.app.ActionBar actionBar;
+
+    public String userID;
+
+    private Toast mToast;
+
+    private String promoCode;
+
+    private String launchLink;
+
+    private final String APIKEY = "APIKEY";
+    private final String IMAGES = "IMAGES";
+    private final String USER_ID = "USER_ID";
+    private final String PROMO_CODE = "PROMO_CODE";
 
     private ViewPager.SimpleOnPageChangeListener mPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
         @Override
@@ -89,50 +132,106 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
 
         setContentView(R.layout.activity_main);
         images = new ArrayList<>();
+        imageViews = new ArrayList<>();
+        imageIsVisible = new ArrayList<>();
 
         mPicker = new Picker.Builder(this, this, R.style.MIP_theme)
                 .disableCaptureImageFromCamera()
                 .setDoneFabIconTintColor(Color.WHITE)
                 .build();
 
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        landingPage = "";
+        catalog = "";
 
-        mCarouselBackGround = findViewById(R.id.carousel_background);
-        mImageCountTextView = (TextView) findViewById(R.id.txtview_image_count);
+        onMainPage = true;
+        actionBar = getSupportActionBar();
+
+
+        //mViewPager = (ViewPager) findViewById(R.id.pager);
+        //mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
+
+        //mCarouselBackGround = findViewById(R.id.carousel_background);
+        //mImageCountTextView = (TextView) findViewById(R.id.txtview_image_count);
+
+        mImageContainer = (LinearLayout) findViewById(R.id.image_container);
+        mImageScroller = (HorizontalScrollView) findViewById(R.id.image_scroller);
+
+
+        Log.d(TAG, "ViewTreeOvserver: " + mImageScroller.getViewTreeObserver().toString());
+        mImageScroller.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (!isScrollListenerAdded) {
+                    isScrollListenerAdded = true;
+                    mImageScroller.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+
+                        @Override
+                        public void onScrollChanged() {
+                            if (scrollUpdateTimer == null) {
+                                scrollUpdateTimer = new CountDownTimer(250, 250) {
+
+                                    @Override
+                                    public void onFinish() {
+                                        Log.d(TAG, "onFinish updateImageViews");
+
+                                        onImagesUpdated(false);
+                                    }
+
+                                    @Override
+                                    public void onTick(long interval) {
+                                        Log.d(TAG, "onTick updateImageViews");
+                                    }
+                                };
+
+                            } else {
+                                scrollUpdateTimer.cancel();
+                                scrollUpdateTimer.start();
+                            }
+
+                        }
+                    });
+                }
+            }
+        });
+
+
         initImageLoader(this);
+        makeActionOverflowMenuShown();
 
     }
 
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_info:
-                Toast.makeText(mContext, BuildConfig.VERSION_NAME + "-" + com.fujifilm.libs.spa.BuildConfig.FLAVOR, Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    /**
+     * Force show overflow menu on devices that have hw menu button
+     * http://stackoverflow.com/a/11438245
+     */
+    private void makeActionOverflowMenuShown() {
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            Log.d(TAG, e.getLocalizedMessage());
         }
     }
 
+    public void onBackPressed() {
+        if(onMainPage) {
+            moveTaskToBack(true);
+        }
+        else {
+            actionBar.setTitle("Fujifilm SDK");
+            setContentView(R.layout.activity_main);
+            onMainPage = true;
+        }
+    }
     @Override
     public void onResume() {
         Log.d(TAG, "onResume");
         super.onResume();
-        mViewPager.addOnPageChangeListener(mPageChangeListener);
+        //mViewPager.addOnPageChangeListener(mPageChangeListener);
 
     }
 
@@ -140,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     public void onPause() {
         Log.d(TAG, "onPause");
         super.onPause();
-        mViewPager.removeOnPageChangeListener(mPageChangeListener);
+        //mViewPager.removeOnPageChangeListener(mPageChangeListener);
     }
 
     @Override
@@ -149,48 +248,108 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     }
 
 
+    private void cancelToast() {
+        if (mToast != null) {
+            mToast.cancel();
+        }
+    }
+
+
     public void placeOrder(View v) {
         if (images.isEmpty()) {
-            Toast.makeText(this.getApplicationContext(), getString(R.string.no_image_txt), Toast.LENGTH_SHORT).show();
+            cancelToast();
+            mToast = Toast.makeText(this.getApplicationContext(), getString(R.string.no_image_txt), Toast.LENGTH_SHORT);
+            mToast.show();
             return;
         }
 
-        EditText edit = (EditText) findViewById(R.id.apiKey);
+        EditText apikeyEditText = (EditText) findViewById(R.id.apiKey);
 
-        apiKey = edit.getText().toString();
+        apiKey = apikeyEditText.getText().toString().trim();
+
+
+        EditText userIDEditText = (EditText) findViewById(R.id.user_id);
+
+        userID = userIDEditText.getText().toString().trim();
+
+
+        EditText promoCodeEditText = (EditText) findViewById(R.id.promo_code);
+
+        promoCode = promoCodeEditText.getText().toString().trim();
+
+        EditText launchLinkEditText = (EditText) findViewById(R.id.deep_link);
+
+        launchLink = launchLinkEditText.getText().toString().trim();
+
+        String landingPageHash;
+        switch (landingPage)
+        {
+            case "Cart":
+                landingPageHash = "#cart";
+                break;
+            case "Product":
+                landingPageHash = "#products";
+                break;
+            case "Landing Page (Default)":
+            default:
+                landingPageHash = "#servicetype";
+                break;
+        }
+
+        String catalog2;
+        switch (catalog)
+        {
+            case "Costco":
+                catalog2 = "Costco";
+                break;
+            case "Rite Aid":
+                catalog2 = "RiteAid";
+                break;
+            case "Sam\'s Club":
+                catalog2 = "SamsClub";
+                break;
+            case "Walmart":
+                catalog2 = "Walmart";
+                break;
+            case "Mail Order":
+            default:
+                catalog2 = "MailOrder";
+                break;
+        }
+
+        cancelToast();
+        mToast = Toast.makeText(this.getApplicationContext(), landingPageHash + " " + catalog2, Toast.LENGTH_SHORT);
+        mToast.show();
 
         if (apiKey.isEmpty()) {
-            Toast.makeText(this.getApplicationContext(), getString(R.string.no_apikey_txt), Toast.LENGTH_SHORT).show();
+            cancelToast();
+            mToast = Toast.makeText(this.getApplicationContext(), getString(R.string.no_apikey_txt), Toast.LENGTH_SHORT);
+            mToast.show();
             return;
         }
 
-        EditText userIdedit = (EditText) findViewById(R.id.user_id);
-
-        String userId = userIdedit.getText().toString();
-
-
+        SwitchCompat retainSwitch = (SwitchCompat) findViewById(R.id.retain_user_info_switch);
         RadioGroup rg = (RadioGroup) findViewById(R.id.toggle);
         String environmentRadioValue = ((RadioButton) findViewById(rg.getCheckedRadioButtonId())).getText().toString();
 
-        /*
-         ---------------------------------------------------------------------------------------
-         Creates a FujifilmSPA instance that handles the order checkout process.
-         ---------------------------------------------------------------------------------------
-
-         - Go to http://www.fujifilmapi.com to register for an apiKey.
-         - Ensure you have the right apiKey for the right environment.
-
-         @param apiKey: Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com
-         @param isLive: A bool indicating which environment your app runs in.  Must match your app’s environment set on http://fujifilmapi.com.
-         @param userid: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
-         @param images: ArrayList of image local path strings or public urls (http://). If using local paths, they can be either relative or absolute paths. Supported image types are jpeg. A maximum of 50 images can be sent in a given Checkout process. If more than 50 images are sent, only the first 50 will be processed.
-         *---------------------------------------------------------------------------------------
-
-        */
         //Get Fujifilm SPA SDK singleton class instance
         FujifilmSPA fujifilm = FujifilmSPA.getInstance();
+        FujifilmSPA.SdkEnvironment sdkEnvironment;
+        if (environmentRadioValue.equals("LIVE")) {
+            sdkEnvironment = FujifilmSPA.SdkEnvironment.Production;
+        }
+        else {
+            sdkEnvironment = FujifilmSPA.SdkEnvironment.Preview;
+        }
+
+        Map<String, Serializable> extraOptions = null;
+        if (launchLink != null && !launchLink.isEmpty()) {
+            extraOptions = new HashMap<>();
+            extraOptions.put(FujifilmSPA.EXTRA_LAUNCH_LINK, launchLink);
+        }
+
         //call checkout which takes the user into Fujifilm's print products order flow
-        fujifilm.checkout(this, FujifilmSPASDK_INTENT, apiKey, environmentRadioValue.equals("LIVE"), userId, images);
+        fujifilm .checkout(MainActivity.this, SPA_INTENT, apiKey, sdkEnvironment, userID, retainSwitch.isChecked(), images, promoCode, FujifilmSPA.LaunchPage.Home, extraOptions);
     }
 
 
@@ -214,7 +373,6 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         PERMISSIONS_REQUEST_READ_STORAGE);
             }
-            return;
         } else {
             pickImage();
         }
@@ -235,8 +393,11 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
                             URL url = null;
                             try {
                                 url = new URL(input.toString());
+
                                 images.add(new FFImage(url));
-                                updateImageCarousel();
+                                addImageToScroller();
+
+                                //updateImageCarousel();
                             } catch (MalformedURLException e) {
                                 e.printStackTrace();
                             }
@@ -258,13 +419,18 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
                         @Override
                         public void onClick(MaterialDialog dialog, DialogAction which) {
                             images.clear();
+                            imageViews.clear();
+                            imageIsVisible.clear();
                             ImageLoader.getInstance().clearMemoryCache();
-                            updateImageCarousel();
+                            mImageContainer.removeAllViews();
+                            //updateImageCarousel();
                         }
                     })
                     .show();
         } else {
-            Toast.makeText(this.getApplicationContext(), getString(R.string.no_images_clear_txt), Toast.LENGTH_LONG).show();
+            cancelToast();
+            mToast = Toast.makeText(this.getApplicationContext(), getString(R.string.no_images_clear_txt), Toast.LENGTH_LONG);
+            mToast.show();
         }
     }
 
@@ -279,7 +445,9 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
                     pickImage();
 
                 } else {
-                    Toast.makeText(this.getApplicationContext(), getString(R.string.permission_denied_storage_msg), Toast.LENGTH_SHORT).show();
+                    cancelToast();
+                    mToast = Toast.makeText(this.getApplicationContext(), getString(R.string.permission_denied_storage_msg), Toast.LENGTH_SHORT);
+                    mToast.show();
                 }
             }
 
@@ -293,9 +461,16 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == FujifilmSPASDK_INTENT) {
+        if (requestCode == SPA_INTENT) {
+            if (data.hasExtra(FujifilmSPA.EXTRA_PROMO_ERROR)) {
+                cancelToast();
+                mToast = Toast.makeText(this.getApplicationContext(), FujifilmSDKPromoError.getErrorFromCode((int)data.getSerializableExtra(FujifilmSPA.EXTRA_PROMO_ERROR)).getDescription(), Toast.LENGTH_LONG);
+                mToast.show();
+            }
             if (resultCode == RESULT_OK) {
-                Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG).show();
+                cancelToast();
+                mToast = Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_CODE), Toast.LENGTH_LONG);
+                mToast.show();
             }
 
             //If a child app fails for any reason, the parent app will receive RESULT_CANCELLED
@@ -316,7 +491,9 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
                             })
                             .show();
                 } else {
-                    Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG).show();
+                    cancelToast();
+                    mToast = Toast.makeText(this.getApplicationContext(), data.getStringExtra(FujifilmSPA.EXTRA_STATUS_MESSAGE), Toast.LENGTH_LONG);
+                    mToast.show();
                 }
             }
         }
@@ -330,10 +507,22 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
         // killed and restarted.
 
         EditText edit = (EditText) findViewById(R.id.apiKey);
-        apiKey = edit.getText().toString();
+        if(edit != null) {
+            apiKey = edit.getText().toString();
+            savedInstanceState.putString(APIKEY, apiKey);
+        }
 
-        savedInstanceState.putSerializable("IMAGES", images);
-        savedInstanceState.putString("APIKEY", apiKey);
+        EditText userId = (EditText) findViewById(R.id.user_id);
+        if (userId != null) {
+            savedInstanceState.putString(USER_ID, userId.getText().toString());
+        }
+
+        EditText promoCode = (EditText) findViewById(R.id.promo_code);
+        if (promoCode != null) {
+            savedInstanceState.putString(PROMO_CODE, promoCode.getText().toString());
+        }
+
+        savedInstanceState.putSerializable(IMAGES, images);
     }
 
     @Override
@@ -343,10 +532,17 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
         // This bundle has also been passed to onCreate.
 
         EditText edit = (EditText) findViewById(R.id.apiKey);
-        edit.setText(savedInstanceState.getString("APIKEY"));
+        edit.setText(savedInstanceState.getString(APIKEY));
+
+        EditText userId = (EditText) findViewById(R.id.user_id);
+        userId.setText(savedInstanceState.getString(USER_ID));
+
+        EditText promoCode = (EditText) findViewById(R.id.promo_code);
+        promoCode.setText(savedInstanceState.getString(PROMO_CODE));
+
         if (images.isEmpty()) {
-            images = (ArrayList<FFImage>) savedInstanceState.getSerializable("IMAGES");
-            updateImageCarousel();
+            images = (ArrayList<FFImage>) savedInstanceState.getSerializable(IMAGES);
+            //updateImageCarousel();
             updateImageCount(images.size());
         }
     }
@@ -354,29 +550,24 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     @Override
     public void onPickedSuccessfully(final ArrayList<ImageEntry> imagePaths) {
         for (ImageEntry image : imagePaths) {
-            images.add(new FFImage(image.path));
+            //Creating Fujifilm image objects, you could can use any of the following constructors below
+            //images.add(new FFImage(image.path));
+
+            images.add(new FFImage(image.imageId, image.path));
+            addImageToScroller();
         }
-        updateImageCarousel();
+        //updateImageCarousel();
     }
 
     @Override
     public void onCancel() {
         //User canceled the pick activity
     }
-
-
-    private void updateImageCarousel() {
-        ImageCarouselAdapter adapter = new ImageCarouselAdapter(mContext, images);
-        mViewPager.setAdapter(adapter);
-        mIndicator.setViewPager(mViewPager);
-        hideOrShowImageCarouselBackground();
-    }
-
     private void hideOrShowImageCarouselBackground() {
         if (images.size() == 0) {
-            mCarouselBackGround.setVisibility(View.VISIBLE);
+            //mCarouselBackGround.setVisibility(View.VISIBLE);
         } else {
-            mCarouselBackGround.setVisibility(View.GONE);
+            //mCarouselBackGround.setVisibility(View.GONE);
             updateImageCount(1);
         }
     }
@@ -384,7 +575,7 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
     private void updateImageCount(int count) {
         String imageSuffix = images.size() > 1 ? getString(R.string.images_suffix) : getString(R.string.image_suffix);
         String text = String.format("%d/%d %s", count, images.size(), imageSuffix);
-        mImageCountTextView.setText(text);
+        //mImageCountTextView.setText(text);
     }
 
     public static void initImageLoader(Context context) {
@@ -420,4 +611,68 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
         ImageLoader.getInstance().init(config);
 
     }
+
+    private void addImageToScroller(){
+
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageResource(R.drawable.img_placeholder);
+        LinearLayout parentParent = (LinearLayout) (mImageContainer.getParent().getParent());
+        int parentParentHeight = parentParent.getHeight();
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        int margin = (int)(parentParentHeight * 0.02);
+        LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(parentParentHeight, parentParentHeight);
+        layout.setMargins(margin, margin, margin, margin);
+        imageView.setLayoutParams(layout);
+
+        imageViews.add(imageView);
+        imageIsVisible.add(false);
+        mImageContainer.addView(imageView);
+
+        onImagesUpdated(true);
+    }
+
+    private void onImagesUpdated(Boolean forceUpdate){
+        int scrollX = mImageScroller.getScrollX(); //for horizontalScrollView
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+        int scrollCenter = scrollX + width / 2;
+        int centerImageIndex = scrollCenter / (int) (mImageScroller.getHeight() * 1.04);
+        if(centerImageIndex != lastCenterImageIndex || forceUpdate)
+        {
+            lastCenterImageIndex = centerImageIndex;
+            for(int i = 0; i < imageViews.size(); i++)
+            {
+                ImageView imageView = imageViews.get(i);
+                if (i - centerImageIndex < 4 && i - centerImageIndex > -4) {
+                    if( !imageIsVisible.get(i)) {
+                        FFImage image = images.get(i);
+
+                        /*
+                        if (image.getImageType() == FFImageType.URL) {
+                            new ImageLoadTask(image.url.toString(), imageView, parentParentHeight, true).execute();
+                        } else {
+                            new ImageLoadTask(image.path, imageView, parentParentHeight, false).execute();
+                        }
+                        */
+
+                        if (image.getImageType() == FFImageType.URL) {
+                            ImageLoader.getInstance().displayImage(image.url.toString(), imageView);
+                        } else {
+                            ImageLoader.getInstance().displayImage(String.format("file://%s", image.path), imageView);
+                        }
+
+                        imageIsVisible.set(i, true);
+                    }
+                }
+                else {
+                    imageView.setImageResource(R.drawable.img_placeholder);
+                    imageIsVisible.set(i, false);
+                }
+            }
+        }
+    }
+
 }

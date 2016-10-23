@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fujifilm">
 
-
+        <activity android:name="net.yazeed44.imagepicker.ui.PickerActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="org.acra.CrashReportDialog"
             android:excludeFromRecents="true"

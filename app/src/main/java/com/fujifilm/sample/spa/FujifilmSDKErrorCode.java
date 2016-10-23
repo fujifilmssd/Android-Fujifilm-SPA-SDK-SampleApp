@@ -3,7 +3,6 @@ package com.fujifilm.sample.spa;
 import android.app.Activity;
 
 /**
- * Created by rnavinchand on 1/4/16.
  * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  *
  * This is a sample enum containing possible error messages returned by SPA Mobile Web. This may need to
@@ -18,7 +17,9 @@ public enum FujifilmSDKErrorCode {
     NO_VALID_IMAGES("NO_VALID_IMAGES", 5),
     TIME_OUT("TIME_OUT",6),
     ORDER_COMPLETE("ORDER COMPLETE",7),
-    UPLOAD_FAILED("UPLOAD_FAILED",8);
+    UPLOAD_FAILED("UPLOAD_FAILED",8),
+    USERID_INVALID_FORMAT("USERID_INVALID_FORMAT", 9),
+    PROMOCODE_INVALID_FORMAT("PROMOCODE_INVALID_FORMAT", 10);
 
     private String stringValue;
     private int intValue;
@@ -71,6 +72,12 @@ public enum FujifilmSDKErrorCode {
                 break;
             case UPLOAD_FAILED:
                 msg = activity.getString(R.string.upload_failed);
+                break;
+            case USERID_INVALID_FORMAT:
+                msg = activity.getString(R.string.userid_invalid_format);
+                break;
+            case PROMOCODE_INVALID_FORMAT:
+                msg = activity.getString(R.string.promocode_invalid_format);
                 break;
         }
         return msg;

@@ -1,1 +1,1 @@
-include ':app', ':fujifilm.spa.sdk'
+include ':app'

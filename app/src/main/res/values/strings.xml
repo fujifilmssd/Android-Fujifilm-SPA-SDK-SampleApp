@@ -10,11 +10,15 @@
     <string name="url_hint">image URL</string>
     <string name="add_txt">ADD</string>
     <string name="user_id_txt">User ID</string>
+    <string name="promo_code_txt">Promo Code</string>
+    <string name="launch_link_txt">Launch Link</string>
+    <string name="settings_txt">SETTINGS</string>
     <string name="environment_txt">Environment</string>
     <string name="api_txt">API Key</string>
     <string name="add_url_txt">Add URL</string>
     <string name="clear_images_txt">Clear Images</string>
     <string name="done_txt">Done</string>
+    <string name="order_txt">Order</string>
     <string name="test_txt">TEST</string>
     <string name="live_txt">LIVE</string>
     <string name="test_api_key">5cb79d2191874aca879e2c9ed7d5747c</string>
@@ -31,10 +35,9 @@
     <string name="images_suffix">Images</string>
     <string name="crash_toast_text">Oops ! I crashed!</string>
     <string name="crash_dialog_title">Fujifilm SPA SDK Sample App has crashed</string>
-    <string name="crash_dialog_text">Please send a crash report to rnavinchand@fujifilm.com and jnick@fujifilm.com</string>
+    <string name="crash_dialog_text">Please send a crash report to FSSD developers</string>
     <string name="crash_dialog_comment_prompt">You might add your comments about the problem below:</string>
     <string name="crash_dialog_ok_toast">Thank you !</string>
-    <string name="custom_dev_url">Custom Dev URL</string>
 
     <string name="fatal_error_msg">Fatal error.</string>
     <string name="no_images_uploaded_msg">No images uploaded.</string>
@@ -46,5 +49,34 @@
     <string name="time_out_msg">User timed out</string>
     <string name="order_complete">Order Complete: %1$s</string>
     <string name="upload_failed">upload_failed.</string>
-    <string name="stage_dev_endpoint">https://stage.webservices.fujifilmesys.com/spa/sdkdev</string>
+    <string name="retain_user_info_txt">Retain User Info</string>
+    <string name="launch_options_txt">Launch Options</string>
+
+    <string name="required_label_txt">Required</string>
+    <string name="optional_label_txt">Optional</string>
+    <string name="page_label_txt">Page</string>
+    <string name="catalog_label_txt">Catalog</string>
+    <string name="product_label_txt">Product</string>
+
+    <string-array name="dropdown_pages">
+        <item>Landing Page (Default)</item>
+        <item>Cart</item>
+        <item>Product</item>
+    </string-array>
+
+    <string-array name="dropdown_catalogs">
+        <item>Mail Order</item>
+        <item>Costco</item>
+        <item>Rite Aid</item>
+        <item>Sam\'s Club</item>
+        <item>Walmart</item>
+    </string-array>
+
+    <string-array name="dropdown_products">
+        <item>Product 1</item>
+        <item>Product 2</item>
+        <item>Product 3</item>
+        <item>Product 4</item>
+        <item>Product 5</item>
+    </string-array>
 </resources>

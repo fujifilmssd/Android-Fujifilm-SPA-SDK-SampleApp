@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
+<?xml version="1.0" encoding="utf-8"?><!-- File created by the Android Action Bar Style Generator
 
      Copyright (C) 2011 The Android Open Source Project
      Copyright (C) 2012 readyState Software Ltd
@@ -7,9 +6,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-  
+
           http://www.apache.org/licenses/LICENSE-2.0
-  
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -59,11 +58,11 @@
         <item name="background">@drawable/ab_transparent_fujifilm</item>
         <item name="progressBarStyle">@style/ProgressBar.Fujifilm</item>
     </style>
-	
-    <style name="PopupMenu.Fujifilm" parent="@style/Widget.AppCompat.Light.PopupMenu">	
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_fujifilm</item>	
+
+    <style name="PopupMenu.Fujifilm" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_fujifilm</item>
     </style>
-	
+
     <style name="DropDownListView.Fujifilm" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_fujifilm</item>
     </style>
@@ -71,25 +70,54 @@
     <style name="ActionBarTabStyle.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_fujifilm</item>
     </style>
-	
+
     <style name="DropDownNav.Fujifilm" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_fujifilm</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_fujifilm</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_fujifilm</item>
     </style>
-    
+
     <style name="ProgressBar.Fujifilm" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_fujifilm</item>
     </style>
-    
+
     <style name="ActionButton.CloseMode.Fujifilm" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_fujifilm</item>
     </style>
-    
+
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Fujifilm.Widget" parent="@style/Theme.AppCompat">
         <item name="popupMenuStyle">@style/PopupMenu.Fujifilm</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Fujifilm</item>
+    </style>
+
+    <style name="Theme.Fujifilm.TextButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/fuji_black</item>
+        <item name="android:background">@drawable/bottom_border</item>
+        <item name="android:textSize">@dimen/fuji_text_size_medium</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="Theme.Fujifilm.Spinner" parent="@style/Base.Widget.AppCompat.Spinner">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/fuji_text_size_small</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@color/fuji_alternate_background</item>
+        <!--item name="android:theme">@style/Theme.Fujifilm.SpinnerItem</item-->
+    </style>
+
+    <style name="Theme.Fujifilm.SpinnerItem">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/fuji_text_size_small</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#FF0000</item>
     </style>
 
     <style name="Theme.Fujifilm.ActionButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
@@ -99,10 +127,19 @@
     </style>
 
     <style name="Theme.Fujifilm.EditText">
-        <item name="android:layout_marginLeft">15dp</item>
-        <item name="android:layout_marginRight">15dp</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
         <item name="android:singleLine">true</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="Theme.Fujifilm.TextView">
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/fuji_section_header_font_color</item>
     </style>
 
 </resources>

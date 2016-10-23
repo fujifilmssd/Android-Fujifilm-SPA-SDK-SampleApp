@@ -8,10 +8,9 @@ import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 
 /**
- * Created by rnavinchand on 12/30/15.
  * Copyright (c) 2016 FUJIFILM North America Corp. All rights reserved.
  */
-@ReportsCrashes(mailTo = "rnavinchand@fujifilm.com, jnick@fujifilm.com" ,
+@ReportsCrashes(mailTo = "jnick@fujifilm.com, ybasusta@fujifilm.com" ,
         customReportContent = { ReportField.ANDROID_VERSION, ReportField.PHONE_MODEL, ReportField.CUSTOM_DATA,
                 ReportField.STACK_TRACE, ReportField.LOGCAT },
         mode = ReportingInteractionMode.DIALOG,

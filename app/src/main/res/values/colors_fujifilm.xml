@@ -33,5 +33,6 @@
     <color name="fuji_transparent_background">#33000000</color>
     <color name="fuji_help_background">#222222</color>
     <color name="fuji_alternate_background">#EDF5FF</color>
+    <color name="fuji_section_header_font_color">#0D8172</color>
 
 </resources>
