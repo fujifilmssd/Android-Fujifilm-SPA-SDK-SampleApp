@@ -113,6 +113,8 @@ Clean and build your project.
 
 ### Fujifilm SPA SDK Usage
 
+See complete example [here](#full-example).
+
 Import the following classes in your activity:
 
 ```Java
@@ -138,16 +140,16 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 
 #### Parameters
 
-**startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.
-**requestCode**: a user-defined request code to handle response messages. An integer that will be sent back in 'OnActivityResult' when the FujifilmSPASDKActivity finishes
-**apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com. This apiKey is environment specific
-**environment**: Sets the environment to use. The apiKey must match your app’s environment set on http://fujifilmapi.com.
-**userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters
-**shouldRetainUserInfo**: Save user information (address, phone number, email) for when the app is used a 2nd time.
- **images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg/png. A maximum of 100 images can be sent in a given Checkout process. If more than 100 images are sent, only the first 100 will be processed.
-**promoCode**: Optional parameter to add a promo code to the order. Contact us through http://fujifilmapi.com for usage and support.
-**launchPage**: The page that the Website should launch when initialized. Valid values are (Home, Cart), defaults to Home
-**extraOptions** For future use, null is the only acceptable value currently
+**startingActivity**: the parent activity that is starting the Fujifilm SPA SDK. This will be used to provide information about the order when the Fujifilm SPA SDK (child app) finishes.  
+**requestCode**: a user-defined request code to handle response messages. An integer that will be sent back in 'OnActivityResult' when the FujifilmSPASDKActivity finishes  
+**apiKey**:  Fujifilm SPA apiKey you receive when you create your app at http://fujifilmapi.com. This apiKey is environment specific  
+**environment**: Sets the environment to use. The apiKey must match your app’s environment set on http://fujifilmapi.com.  
+**userId**: Optional parameter. This can be used to link a user with an order. MaxLength = 50 alphanumeric characters  
+**shouldRetainUserInfo**: Save user information (address, phone number, email) for when the app is used a 2nd time.  
+ **images**: ArrayList of FFImage objects. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg/png. A maximum of 100 images can be sent in a given Checkout process. If more than 100 images are sent, only the first 100 will be processed.  
+**promoCode**: Optional parameter to add a promo code to the order. Contact us through http://fujifilmapi.com for usage and support.  
+**launchPage**: The page that the SDK should launch when initialized. Valid values are (Home, Cart), defaults to Home  
+**extraOptions** For future use, null is the only acceptable value currently  
 
 #### Finish Fujifilm SPA SDK
 
