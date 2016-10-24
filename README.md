@@ -41,7 +41,6 @@ Include the following repositories in your root project’s build.gradle file un
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
     }
 }
 ```
