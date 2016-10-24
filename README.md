@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Add public FFImage with public URL
         try {
-            URL myPublicImageURL = new URL("https://pixabay.com/static/uploads/photo/2015/09/05/21/08/fujifilm-925350_960_720.jpg");
+            URL myPublicImageURL = new URL("https://webservices.fujifilmesys.com/venus/imagebank/fujifilmCamera.jpg");
             images.add(new FFImage(myPublicImageURL));
         } catch (MalformedURLException e) {
             e.printStackTrace();
