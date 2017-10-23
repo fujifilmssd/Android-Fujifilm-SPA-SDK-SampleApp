@@ -256,7 +256,16 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
 
 
     public void placeOrder(View v) {
-        if (images.isEmpty()) {
+
+        Map<String, Serializable> extraOptions = null;
+        SwitchCompat enableAddMorePhotosSwitch = (SwitchCompat) findViewById(R.id.enable_add_more_photos_switch);
+
+        if (enableAddMorePhotosSwitch != null && enableAddMorePhotosSwitch.isChecked()) {
+            if (extraOptions == null) {
+                extraOptions = new HashMap<>();
+            }
+            extraOptions.put(FujifilmSPA.EXTRA_ADD_MORE_PHOTOS_ENABLED, true);
+        } else if (images.isEmpty()) {
             cancelToast();
             mToast = Toast.makeText(this.getApplicationContext(), getString(R.string.no_image_txt), Toast.LENGTH_SHORT);
             mToast.show();
@@ -330,21 +339,23 @@ public class MainActivity extends AppCompatActivity implements Picker.PickListen
 
         SwitchCompat retainSwitch = (SwitchCompat) findViewById(R.id.retain_user_info_switch);
         RadioGroup rg = (RadioGroup) findViewById(R.id.toggle);
-        String environmentRadioValue = ((RadioButton) findViewById(rg.getCheckedRadioButtonId())).getText().toString();
 
         //Get Fujifilm SPA SDK singleton class instance
         FujifilmSPA fujifilm = FujifilmSPA.getInstance();
         FujifilmSPA.SdkEnvironment sdkEnvironment;
-        if (environmentRadioValue.equals("LIVE")) {
-            sdkEnvironment = FujifilmSPA.SdkEnvironment.Production;
-        }
-        else {
+
+        if (rg.getCheckedRadioButtonId() == R.id.test) {
             sdkEnvironment = FujifilmSPA.SdkEnvironment.Preview;
         }
+        else {
+            sdkEnvironment = FujifilmSPA.SdkEnvironment.Production;
+        }
 
-        Map<String, Serializable> extraOptions = null;
+
         if (launchLink != null && !launchLink.isEmpty()) {
-            extraOptions = new HashMap<>();
+           if(extraOptions == null){
+               extraOptions = new HashMap<>();
+           }
             extraOptions.put(FujifilmSPA.EXTRA_LAUNCH_LINK, launchLink);
         }
 

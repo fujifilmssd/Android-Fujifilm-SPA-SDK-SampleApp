@@ -75,26 +75,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:checkedButton="@+id/test"
+                    android:checkedButton="@+id/stage"
                     android:orientation="horizontal"
                     android:layout_alignParentStart="false"
                     android:layout_alignParentLeft="false"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp">
 
-                    <RadioButton
-                        android:id="@+id/live"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/radio_selector_left"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:paddingTop="5dp"
-                        android:text="@string/live_txt"
-                        android:textColor="@android:color/white" />
 
                     <RadioButton
                         android:id="@+id/test"
@@ -109,6 +96,24 @@
                         android:paddingTop="5dp"
                         android:text="@string/test_txt"
                         android:textColor="@android:color/white" />
+
+
+
+                    <RadioButton
+                        android:id="@+id/live"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/radio_selector_right"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/live_txt"
+                        android:textColor="@android:color/white" />
+
+
                 </RadioGroup>
 
 
@@ -163,6 +168,37 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:background="@drawable/bottom_border">
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/enable_add_more_photos_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:checked="true"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="@dimen/fuji_text_size_medium"
+                    app:showText="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/enable_add_more_photos_switch"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/enable_add_more_photos_txt"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/fuji_text_size_medium" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".5"
                 android:background="@drawable/bottom_border">
@@ -185,11 +221,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/retain_user_info_switch"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/retain_user_info_txt"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/fuji_text_size_medium"
-                    android:layout_alignBaseline="@+id/retain_user_info_switch"
-                    android:layout_marginLeft="20dp" />
+                    android:textSize="@dimen/fuji_text_size_medium" />
             </RelativeLayout>
 
             <!--<Button-->
@@ -302,7 +338,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/img_placeholder"/>
                 -->
-                -
+
             </LinearLayout>
         </HorizontalScrollView>
 
@@ -345,6 +381,16 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/add_url_btn"
+                style="@style/Theme.Fujifilm.ActionButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_link_black_36dp"
+                android:onClick="addURL"
+                android:text="@string/add_url_txt"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/pick_image_btn"

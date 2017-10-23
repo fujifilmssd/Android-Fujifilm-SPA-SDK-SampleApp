@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.3.1'
         classpath group: 'org.tmatesoft.svnkit', name: 'svnkit', version: '1.7.11'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -16,8 +16,12 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
         maven { url "https://jitpack.io" }
-        maven { url "https://repo.commonsware.com.s3.amazonaws.com"}
+
+        maven {
+            url "https://s3.amazonaws.com/repo.commonsware.com"
+        }
     }
 }
 

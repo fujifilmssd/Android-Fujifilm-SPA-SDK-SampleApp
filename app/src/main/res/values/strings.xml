@@ -58,6 +58,7 @@
     <string name="catalog_label_txt">Catalog</string>
     <string name="product_label_txt">Product</string>
 
+    <string name="enable_add_more_photos_txt">Enable Add More Photos</string>  
     <string-array name="dropdown_pages">
         <item>Landing Page (Default)</item>
         <item>Cart</item>
