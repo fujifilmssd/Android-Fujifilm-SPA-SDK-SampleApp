@@ -19,8 +19,8 @@
     <string name="clear_images_txt">Clear Images</string>
     <string name="done_txt">Done</string>
     <string name="order_txt">Order</string>
-    <string name="test_txt">TEST</string>
-    <string name="live_txt">LIVE</string>
+    <string name="preview_txt">Prev</string>
+    <string name="production_txt">Prod</string>
     <string name="test_api_key">5cb79d2191874aca879e2c9ed7d5747c</string>
     <string name="ok_txt">OK</string>
     <string name="no_images_txt">No Images Added</string>
@@ -38,6 +38,7 @@
     <string name="crash_dialog_text">Please send a crash report to FSSD developers</string>
     <string name="crash_dialog_comment_prompt">You might add your comments about the problem below:</string>
     <string name="crash_dialog_ok_toast">Thank you !</string>
+    <string name="custom_dev_url">Custom Dev URL</string>
 
     <string name="fatal_error_msg">Fatal error.</string>
     <string name="no_images_uploaded_msg">No images uploaded.</string>
@@ -54,11 +55,23 @@
 
     <string name="required_label_txt">Required</string>
     <string name="optional_label_txt">Optional</string>
+    <string name="optional_prerendered_label_txt">Optional Pre-Rendered Products (See Documentation)</string>
+    <string name="pick_prerendered_txt">Prerendered Products</string>
     <string name="page_label_txt">Page</string>
     <string name="catalog_label_txt">Catalog</string>
     <string name="product_label_txt">Product</string>
+    <string name="enable_add_more_photos_txt">Enable Add More Photos</string>
 
-    <string name="enable_add_more_photos_txt">Enable Add More Photos</string>  
+    <string name="prerendered_product_1">"PRGC;823"</string>
+    <string name="prerendered_product_2">"PRGC;830"</string>
+    <string name="prerendered_product_3">"PRGift;4121"</string>
+    <string name="prerendered_product_4">"PRGift;5212"</string>
+
+    <string name="prerendered_product_1_name">"4x8 Greeting Card"</string>
+    <string name="prerendered_product_2_name">"5x7 Greeting Card"</string>
+    <string name="prerendered_product_3_name">"5x7 Stationery Card"</string>
+    <string name="prerendered_product_4_name">"8x8 Superia Photo Book"</string>
+
     <string-array name="dropdown_pages">
         <item>Landing Page (Default)</item>
         <item>Cart</item>
@@ -79,5 +92,19 @@
         <item>Product 3</item>
         <item>Product 4</item>
         <item>Product 5</item>
+    </string-array>
+
+    <string-array name="dropdown_prerendered">
+        <item>@string/prerendered_product_1</item>
+        <item>@string/prerendered_product_2</item>
+        <item>@string/prerendered_product_3</item>
+        <item>@string/prerendered_product_4</item>
+    </string-array>
+
+    <string-array name="dropdown_prerendered_names">
+        <item>@string/prerendered_product_1_name</item>
+        <item>@string/prerendered_product_2_name</item>
+        <item>@string/prerendered_product_3_name</item>
+        <item>@string/prerendered_product_4_name</item>
     </string-array>
 </resources>

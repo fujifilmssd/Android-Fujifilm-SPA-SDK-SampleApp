@@ -131,6 +131,7 @@
         <item name="android:layout_marginRight">20dp</item>
         <item name="android:singleLine">true</item>
         <item name="android:inputType">text</item>
+        <item name="android:minHeight">55sp</item>
     </style>
 
     <style name="Theme.Fujifilm.TextView">

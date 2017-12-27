@@ -6,6 +6,8 @@
     android:background="@color/fuji_alternate_background"
     android:orientation="vertical"
     android:weightSum="100"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity">
 
 
@@ -75,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:checkedButton="@+id/stage"
+                    android:checkedButton="@+id/preview"
                     android:orientation="horizontal"
                     android:layout_alignParentStart="false"
                     android:layout_alignParentLeft="false"
@@ -84,23 +86,23 @@
 
 
                     <RadioButton
-                        android:id="@+id/test"
+                        android:id="@+id/preview"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:background="@drawable/radio_selector_right"
+                        android:background="@drawable/radio_selector_left"
                         android:button="@null"
                         android:gravity="center"
                         android:paddingBottom="5dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:paddingTop="5dp"
-                        android:text="@string/test_txt"
+                        android:text="@string/preview_txt"
                         android:textColor="@android:color/white" />
 
 
 
                     <RadioButton
-                        android:id="@+id/live"
+                        android:id="@+id/production"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="@drawable/radio_selector_right"
@@ -110,7 +112,7 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:paddingTop="5dp"
-                        android:text="@string/live_txt"
+                        android:text="@string/production_txt"
                         android:textColor="@android:color/white" />
 
 
@@ -254,7 +256,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_alignParentTop="false"
                     android:layout_marginTop="0dp"
-                    android:layout_centerVertical="true" />
+                    android:layout_centerVertical="true"/>
 
 
             </RelativeLayout>
@@ -298,6 +300,78 @@
                     android:layout_marginTop="0dp"
                     android:layout_centerVertical="true" />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/optionalPrerenderedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentTop="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/optional_prerendered_label_txt"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/fuji_section_header_font_color" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/dropdown_prerendered"
+                        android:gravity="left"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textSize="@dimen/fuji_text_size_medium"
+                        android:entries="@array/dropdown_prerendered_names" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottom_border">
+
+                    <GridView
+                        android:id="@+id/gridView_prerendered_buttons"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:numColumns="1"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:textSize="@dimen/fuji_text_size_large"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <GridView
+                        android:id="@+id/gridView_prerendered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignBaseline="@+id/gridView_prerendered_buttons"
+                        android:numColumns="1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="70dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/fuji_text_size_medium"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

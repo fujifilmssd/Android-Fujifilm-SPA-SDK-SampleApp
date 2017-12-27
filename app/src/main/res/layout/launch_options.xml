@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/launch_options"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/fuji_alternate_background"
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:isScrollContainer="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:minHeight="@dimen/fuji_settings_container_minHeight"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/page_label_txt"
+                android:id="@+id/pageLabel"
+                android:textColor="@color/fuji_black"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_centerVertical="true" />
+
+            <Spinner
+                android:id="@+id/dropdown_pages"
+                style="@style/Theme.Fujifilm.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_pages" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/catalog_label_txt"
+                android:id="@+id/catalogLabel"
+                android:textColor="@color/fuji_black"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_centerVertical="true"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/dropdown_catalogs"
+                style="@style/Theme.Fujifilm.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_catalogs"
+                android:visibility="gone"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/product_label_txt"
+                android:id="@+id/productLabel"
+                android:textColor="@color/fuji_black"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_centerVertical="true"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/dropdown_products"
+                style="@style/Theme.Fujifilm.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_products"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/order_btn"
+        style="@style/Theme.Fujifilm.ActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToMain"
+        android:text="@string/done_txt"
+        android:background="#212121"
+        android:textColor="#ffffff"
+        android:elegantTextHeight="true" />
+
+</LinearLayout>

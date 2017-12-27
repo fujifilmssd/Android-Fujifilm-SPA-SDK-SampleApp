@@ -34,5 +34,5 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'ch.acra:acra:4.6.2'
     compile('fr.avianey.com.viewpagerindicator:library:2.4.1@aar')
-    compile('com.fujifilmssd:fujifilm.spa.sdk:1.6.8')
+    compile('com.fujifilmssd:fujifilm.spa.sdk:1.7.9')
 }
