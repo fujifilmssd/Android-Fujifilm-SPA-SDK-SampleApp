@@ -40,7 +40,7 @@ To install the library in Android Studio using Gradle, you can declare it as dep
  
 ```
 dependencies {
-    compile('com.fujifilmssd:fujifilm.spa.sdk:1.7.34')
+    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.7.34')
 }
 ```
 Include the following repositories in your root project’s `build.gradle` file under the  `allprojects` section:
