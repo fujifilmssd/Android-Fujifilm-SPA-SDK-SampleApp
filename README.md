@@ -161,8 +161,7 @@ fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, 
 |`userId`|`String`|Optional parameter. This can be used to link a user with an order. May be null if no UserId is desired. MaxLength = 50 alphanumeric characters  
 |`shouldRetainUserInfo`|`boolean`|Save user information (address, phone number, email) for when the app is used a 2nd time.  
  |`images`|`ArrayList<FFImage>`|ArrayList of FFImage objects. May be null if no images passed in is desired. FFImage can be a local image (id, path) or public url (https://). Supported image types are jpeg/png. A maximum of 100 images can be sent in a given Checkout process. If more than 100 images are sent, only the first 100 will be processed.  
-|`promoCode`|`String`|Optional parameter to add a promo code to the order. May be null if no passed in promo code is desired. Contact us through http://fujifilmapi.com for usage and support.  
-|`
+|`promoCode`|`String`|Optional parameter to add a promo code to the order. May be null if no passed in promo code is desired. Contact us through http://fujifilmapi.com for usage and support.
 
 
 
