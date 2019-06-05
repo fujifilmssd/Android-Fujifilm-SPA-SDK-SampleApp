@@ -51,6 +51,7 @@ allprojects {
         jcenter()
         maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
         maven { url "https://jitpack.io" }
+        maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
     }
 }
 ```
@@ -88,6 +89,7 @@ Skip to [Implementation Instructions](#implementation-instructions) section belo
                     jcenter()
                     maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
                     maven { url "https://jitpack.io" }
+                    maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
                 }
             }
  
