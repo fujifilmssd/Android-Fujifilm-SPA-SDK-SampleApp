@@ -47,6 +47,7 @@ Include the following repositories in your root project’s `build.gradle` file 
 ```
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
         maven { url "https://jitpack.io" }
@@ -83,6 +84,7 @@ Skip to [Implementation Instructions](#implementation-instructions) section belo
  
             allprojects {
                 repositories {
+                    google()
                     jcenter()
                     maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
                     maven { url "https://jitpack.io" }
