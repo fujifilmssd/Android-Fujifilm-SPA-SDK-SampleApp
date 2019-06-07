@@ -12,15 +12,6 @@ The Fujifilm SPA SDK gives you access to over 50 popular photo gift products and
  
 Please visit the Fujifilm Developer Network portal to sign-up and obtain an API key, set product pricing, and configure your application.  The portal is available at http://www.fujifilmapi.com/.
  
-### What’s new?
-There are many new items in this release:
-
-+ Completely re-designed GUI
-+ Product categorization to help organize the available product set
-+ Over 30 new products including items within popular categories such as Home Décor and mobile device cases
-+ A native Android SDK in addition to our iOS SDK so that you can provide your users with a common experience in either operating system (Android versions 4.0 and above)
-+ Updated support for Android versions 6 and above
- 
 ## Requirements
 + App minimum SDK 16 or above
 + Developers using the Fujifilm SPA Android SDK need to sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an API Key, and setup catalog products and pricing.
