@@ -40,9 +40,24 @@ To install the library in Android Studio using Gradle, you can declare it as dep
  
 ```
 dependencies {
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.7.34')
+    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.8')
+    
+    //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implentation line above and uncomment below):
+    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+        //exclude group: "com.android.support"
+    //}
 }
 ```
+
+If you get a "Duplicate class android.support..." error update the dependency with the following:
+```
+dependencies {    
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+        exclude group: "com.android.support"
+    }
+}
+```
+
 Include the following repositories in your root project’s `build.gradle` file under the  `allprojects` section:
 ```
 allprojects {
@@ -62,66 +77,6 @@ Change your minimum SDK version to 16 or above in your gradle file:
 You can now force Android Studio to sync with your configuration by selecting `Tools -> Android -> Sync Project with Gradle Files`
  
 Skip to [Implementation Instructions](#implementation-instructions) section below
- 
-### Android Studio - Manual Installation
- 
-##### Skip this section if you are using Gradle!
- 
-1. Download the [library](https://github.com/fujifilmssd/Android-Fujifilm-SPA-SDK-SampleApp/blob/master/fujifilm.spa.sdk/fujifilm.spa.sdk.aar).
-2. In Android Studio, Click `File -> New -> New Module`
-3. Select `Import .JAR or .AAR Package` and click `Next`. Then link to the path of the library downloaded in Step 1 and click `Finish`.
-4. Set your app to be dependent on the FujifilmSPASDK library. Right click on your app in the project browser and click `Open Module Settings`.
-5. In the Project Structure window make sure your app is selected in the modules area to the left, then click on the Dependencies tab. Click the plus sign in the Dependencies window, then click `Module dependency`. Select the FujifilmSPASDK library in the Choose Modules window and press `OK`.
-6. Include Additional Dependencies.
-    * Add the following dependencies to your app’s app `build.gradle` file. These should be included above the `:fujifilm.spa.sdk` project dependency:
-    
-            compile('com.afollestad.material-dialogs:core:0.8.6.2') {
-                transitive = true
-            }
-            compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-            compile ('com.braintreepayments.api:braintree:2.+')
- 
-    * Include the following in your project’s `build.gradle` file allprojects repositories:
- 
-            allprojects {
-                repositories {
-                    google()
-                    jcenter()
-                    maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
-                    maven { url "https://jitpack.io" }
-                    maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
-                }
-            }
- 
-Skip to [Implementation Instructions](#implementation-instructions) section below
- 
-#### Eclipse with ADT
- 
-##### Skip this section if you are using Android Studio!
- 
-1. Download .JAR, and move it to project's lib directory.
-2. Right click on your project in the package explorer, then click properties.
-3. Click apply, then click “Java Build Path” on the left. In the libraries tab, press “Add Jars” and direct to the FujifilmSPASDK.jar file.
-4. Go to the Order and Export tab, and in the list presented, make sure FujifilmSPASDK is checked.
-5. Update your app’s Android Manifest to add the following permissions and activity:
- 
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
- 
-    <application
-        <activity
-            android:name="com.example.me.FujifilmSPASDK"
-            android:screenOrientation="portrait"
-            android:label="FujifilmSPASDK" >
-        </activity>
-    </application>
-</manifest>
-```
- 
-Clean and build your project.
  
 ## Implementation Instructions
  
@@ -565,6 +520,14 @@ The following are some notes to help with integrating with **Fujifilm SPA Androi
 + The maximum size of a single file is 20MB for local images, no file size restriction for public urls
  
 ### Errors that prevent the SDK from Starting
++ If you get a "Duplicate class android.support..." error update the dependency with the following:
+```
+dependencies {    
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+        exclude group: "com.android.support"
+    }
+}
+```
 + 0 valid images
 + No internet access
 + Invalid APIKey. Ensure the APIKey you are using matches the environment string you are passing in (Stage, Preview, Production)
