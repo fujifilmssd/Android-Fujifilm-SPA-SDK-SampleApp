@@ -42,7 +42,7 @@ To install the library in Android Studio using Gradle, you can declare it as dep
 dependencies {
     implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.8')
     
-    //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implentation line above and uncomment below):
+    //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implementation line above and uncomment below):
     //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
         //exclude group: "com.android.support"
     //}
@@ -72,7 +72,7 @@ allprojects {
 ```
 Change your minimum SDK version to 16 or above in your gradle file:
 ```
- minSdkVersion 16
+ minSdkVersion 21
 ```
 You can now force Android Studio to sync with your configuration by selecting `Tools -> Android -> Sync Project with Gradle Files`
  
@@ -464,6 +464,7 @@ public class MainActivity extends AppCompatActivity {
  
     private static final int FujifilmSPASDK_INTENT = 333; //user defined request code for SPA
     private ArrayList<FFImage> images;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
