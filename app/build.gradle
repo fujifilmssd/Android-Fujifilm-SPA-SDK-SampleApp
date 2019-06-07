@@ -34,6 +34,7 @@ dependencies {
 
     implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.8')
 
+    //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implementation line above and uncomment below):
    // implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
    //     exclude group: "com.android.support"
     //}
