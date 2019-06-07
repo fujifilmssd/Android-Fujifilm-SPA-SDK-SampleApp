@@ -349,42 +349,6 @@ public class MainActivity extends AppCompatActivity {
 
         launchLink = launchLinkEditText.getText().toString().trim();
 
-        String landingPageHash;
-        switch (landingPage)
-        {
-            case "Cart":
-                landingPageHash = "#cart";
-                break;
-            case "Product":
-                landingPageHash = "#products";
-                break;
-            case "Landing Page (Default)":
-            default:
-                landingPageHash = "#servicetype";
-                break;
-        }
-
-        String catalog2;
-        switch (catalog)
-        {
-            case "Costco":
-                catalog2 = "Costco";
-                break;
-            case "Rite Aid":
-                catalog2 = "RiteAid";
-                break;
-            case "Sam\'s Club":
-                catalog2 = "SamsClub";
-                break;
-            case "Walmart":
-                catalog2 = "Walmart";
-                break;
-            case "Mail Order":
-            default:
-                catalog2 = "MailOrder";
-                break;
-        }
-
         cancelToast();
 
         if (apiKey.isEmpty()) {
@@ -453,6 +417,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    @SuppressWarnings("unchecked")
     private BroadcastReceiver mImagePickerBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -639,7 +604,7 @@ public class MainActivity extends AppCompatActivity {
 
         savedInstanceState.putSerializable(IMAGES, images);
     }
-
+    @SuppressWarnings("unchecked")
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);

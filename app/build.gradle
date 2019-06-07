@@ -2,12 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.fujifilm.sample.spa"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -32,5 +31,10 @@ dependencies {
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'ch.acra:acra:4.6.2'
     implementation('fr.avianey.com.viewpagerindicator:library:2.4.1@aar')
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.7.34')
+
+    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.8')
+
+   // implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+   //     exclude group: "com.android.support"
+    //}
 }
