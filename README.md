@@ -13,7 +13,7 @@ The Fujifilm SPA SDK gives you access to over 50 popular photo gift products and
 Please visit the Fujifilm Developer Network portal to sign-up and obtain an API key, set product pricing, and configure your application.  The portal is available at http://www.fujifilmapi.com/.
  
 ## Requirements
-+ App minimum SDK 16 or above
++ App minimum SDK 21 or above
 + Developers using the Fujifilm SPA Android SDK need to sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an API Key, and setup catalog products and pricing.
  
 ## Integration Instructions
@@ -61,7 +61,7 @@ allprojects {
     }
 }
 ```
-Change your minimum SDK version to 16 or above in your gradle file:
+Change your minimum SDK version to 21 or above in your gradle file:
 ```
  minSdkVersion 21
 ```
