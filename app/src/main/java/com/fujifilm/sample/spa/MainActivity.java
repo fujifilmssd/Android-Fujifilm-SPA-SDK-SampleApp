@@ -145,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
     private final String CUSTOM_DEV_URL = "CUSTOM_DEV_URL";
     private final String PRERENDERED_LIST_FIRST_STRING = "<Select Item>";
 
+    private boolean overrideFujifilmSDKImagePicker = false;  //override Fujifilm's SDK image picker
+
 
     private ViewPager.SimpleOnPageChangeListener mPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
         @Override
@@ -228,8 +230,30 @@ public class MainActivity extends AppCompatActivity {
         initImageLoader(this);
         makeActionOverflowMenuShown();
 
+        //Optional: If you are using your own image picker (when the user attempts to Add More Photos from Fujifilm's SDK), you need to register a receiver to handle a broadcast from Fujifilm's SDK
+        if(overrideFujifilmSDKImagePicker) {
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(FujifilmSPA.ACTION_ADD_MORE_PHOTOS);
+            LocalBroadcastManager.getInstance(this).registerReceiver(mAddMorePhotosLocalBroadCastReceiver, filter);
+        }
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(FFAlbumsViewActivity.ACTION_PHOTOS_SELECTED);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mImagePickerBroadcastReceiver, filter);
     }
 
+    //Optional: If you are using your own image picker (when the user attempts to Add More Photos from Fujifilm's SDK), you need to listen for a broadcast from Fujifilm's SDK.
+    @SuppressWarnings("unchecked")
+    private BroadcastReceiver mAddMorePhotosLocalBroadCastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            String action = intent.getAction();
+            if (action.equals(FujifilmSPA.ACTION_ADD_MORE_PHOTOS)) {
+                pickImage();
+            }
+        }
+    };
     /**
      * Force show overflow menu on devices that have hw menu button
      * http://stackoverflow.com/a/11438245
@@ -286,12 +310,8 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         Log.d(TAG, "onResume");
         super.onResume();
-        if (!requestingPermissions) {
-            LocalBroadcastManager.getInstance(this).unregisterReceiver(mImagePickerBroadcastReceiver);
-        }
         requestingPermissions = false;
         //mViewPager.addOnPageChangeListener(mPageChangeListener);
-
     }
 
     @Override
@@ -304,6 +324,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        if(overrideFujifilmSDKImagePicker) {
+            try {
+                LocalBroadcastManager.getInstance(this).unregisterReceiver(mAddMorePhotosLocalBroadCastReceiver);
+            } catch (Exception ignored) {
+            }
+        }
     }
 
 
@@ -386,6 +413,13 @@ public class MainActivity extends AppCompatActivity {
             }
             extraOptions.put(FujifilmSPA.EXTRA_PRERENDERED_ORDER, createPreRenderedOrderFromArrayList(prerenderedGridViewList));
         }
+        //Optional extraOption: Add the FujifilmSPA.EXTRA_USE_BROADCAST_PICKER extra option if you would like to use your own image picker.
+        if(overrideFujifilmSDKImagePicker) {
+            if (extraOptions == null) {
+                extraOptions = new HashMap<>();
+            }
+            extraOptions.put(FujifilmSPA.EXTRA_USE_BROADCAST_PICKER, true);
+        }
 
         //call checkout which takes the user into Fujifilm's print products order flow
         fujifilm.checkout(this, SPA_INTENT, apiKey, sdkEnvironment, userID, retainSwitch.isChecked(), images, promoCode, FujifilmSPA.LaunchPage.Home, extraOptions);
@@ -424,14 +458,14 @@ public class MainActivity extends AppCompatActivity {
 
             String action = intent.getAction();
             if (action.equals(FFAlbumsViewActivity.ACTION_PHOTOS_SELECTED)) {
-                HashMap<String, ImageSource> images = (HashMap<String, ImageSource>)intent.getSerializableExtra(FFAlbumsViewActivity.EXTRA_SELECTED_IMAGES);
+                HashMap<String, ImageSource> hashImages = (HashMap<String, ImageSource>)intent.getSerializableExtra(FFAlbumsViewActivity.EXTRA_SELECTED_IMAGES);
 
-                if (images == null) {
+                if (hashImages == null) {
                     return;
                 }
                 ArrayList<FFImage> outgoingImages = new ArrayList<>();
-                for(String image : images.keySet()) {
-                    ImageSource source = images.get(image);
+                for(String image : hashImages.keySet()) {
+                    ImageSource source = hashImages.get(image);
                     if(source != ImageSource.UNDEFINED) {
                         if(source == ImageSource.PRETAG || source == ImageSource.MULTIPLE) {
                             FFImage ffImage = new FFImage(image);
@@ -448,10 +482,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     public void pickImage() {
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(FFAlbumsViewActivity.ACTION_PHOTOS_SELECTED);
-
-        LocalBroadcastManager.getInstance(this).registerReceiver(mImagePickerBroadcastReceiver, filter);
         Intent intent = new Intent(this, FFAlbumsViewActivity.class);
         intent.putExtra("fromTaggedImageActivity", false);
         intent.putExtra("fromSdkAddPhotos", true);
@@ -630,9 +660,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onFinishedPickingImages(ArrayList<FFImage> selectedimages) {
+        boolean hasNewImages = false;
         for (FFImage image : selectedimages) {
-            images.add(image);
-            addImageToScroller();
+            if(!images.contains(image)) {
+                images.add(image);
+                hasNewImages = true;
+                addImageToScroller();
+            }
+        }
+        //Optional: If you are using your own image picker you need to send a broadcast to Fujifilm's SDK with the images
+        if(overrideFujifilmSDKImagePicker && hasNewImages) {
+            Intent i = new Intent(FujifilmSPA.ACTION_DATA_RESPONSE);
+            i.putExtra(FujifilmSPA.EXTRA_IMAGES_FROM_PICKER, images);
+            LocalBroadcastManager.getInstance(MainActivity.this).sendBroadcast(i);
         }
     }
 

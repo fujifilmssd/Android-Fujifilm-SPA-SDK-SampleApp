@@ -27,7 +27,7 @@
     <string name="no_apikey_txt">Please enter an api key</string>
     <string name="no_dev_url_txt">Please enter a Custom Dev URL</string>
     <string name="no_image_txt">Please select at least one image</string>
-    <string name="spa_sdk_image_limit_warning">You have reached the image limit for the SPA SDK</string>
+    <string name="spa_sdk_image_limit_warning">You have reached the image limit</string>
     <string name="no_images_clear_txt">You have no images to clear.</string>
     <string name="permission_denied_storage_msg">Fine! No images for you then!</string>
     <string name="invalid_apikey_msg">API key is invalid.</string>

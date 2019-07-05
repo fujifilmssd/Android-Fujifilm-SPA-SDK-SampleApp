@@ -31,10 +31,10 @@ To install the library in Android Studio using Gradle, you can declare it as dep
  
 ```
 dependencies {
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.8')
+    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.8.9')
     
     //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implementation line above and uncomment below):
-    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.9') {
         //exclude group: "com.android.support"
     //}
 }
@@ -43,7 +43,7 @@ dependencies {
 If you get a "Duplicate class android.support..." error update the dependency with the following:
 ```
 dependencies {    
-    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.9') {
         exclude group: "com.android.support"
     }
 }
@@ -123,6 +123,43 @@ The following are currently accepted key/value pairs for the `extraOptions` init
 |`FujifilmSPA.EXTRA_ADD_MORE_PHOTOS_DISABLED`|`boolean`|By default this is set to `false`. To disable the "Add More Photos" feature set this to value `true`. If `false` (or omitted), the user will be able to add more photos from his or her local Photos gallery on the Compose screen and the Prints screen.  
 |`FujifilmSPA.EXTRA_LAUNCH_LINK`|`String`|Specifies which page the user is first presented with when launching the SDK. You can send the user to the cart, a category, or to a product details screen. To send the user to the cart, set the value to `Cart`. To send the user to a category use the follow pattern: `mailorder/CATEGORY_NAME`. Make sure to change the `CATEGORY_NAME` to the name of the category, for example, `mailorder/WallArt`. To send the user to a product details screen use the following pattern: `mailorder/CATEGORY_NAME/PRODUCT_NAME`. Make sure to change `CATEGORY_NAME` to the name of the category and the `PRODUCT_NAME` to the name of the product, for example, `mailorder/canvas/11x14gallerywrappedcanvas`.  
 |`FujifilmSPA.EXTRA_HAS_PRERENDERED_ITEMS`|`PreRenderedOrder`|See section "[Providing Pre-rendered Products](#providing-pre-rendered-products)" for more information  
+|`FujifilmSPA.EXTRA_USE_BROADCAST_PICKER`|`boolean`|By default this is set to `false`. If you would like to use your own image picker set this value to true and follow the instructions in section "[Override Image Picker (Optional)](#override-image-picker-optional)"
+
+#### Override Image Picker (Optional)
+If you're interested in having our SDK use your image picker when the user attempts to add more photos to their session, please implement the following steps.
+1. Add the FujifilmSPA.EXTRA_USE_BROADCAST_PICKER option to the extraOptions initialization paramter and set the value to true.
+
+        if(overrideFujifilmSDKImagePicker) {
+            if (extraOptions == null) {
+                extraOptions = new HashMap<>();
+            }
+            extraOptions.put(FujifilmSPA.EXTRA_USE_BROADCAST_PICKER, true);
+        }
+
+2. Register a receiver to handle a broadcast from Fujifilm's SDK. This will sent when the user attempts to add more photos from the SDK if the extraOption flag is set to true in step 1.
+
+         if(overrideFujifilmSDKImagePicker) {
+              IntentFilter filter = new IntentFilter();
+              filter.addAction(FujifilmSPA.ACTION_ADD_MORE_PHOTOS);
+              LocalBroadcastManager.getInstance(this).registerReceiver(mAddMorePhotosLocalBroadCastReceiver, filter);
+          }
+          private BroadcastReceiver mAddMorePhotosLocalBroadCastReceiver = new BroadcastReceiver() {
+              @Override
+              public void onReceive(Context context, Intent intent) {
+                  String action = intent.getAction();
+                  if (action.equals(FujifilmSPA.ACTION_ADD_MORE_PHOTOS)) {
+                      showMyOwnImagePicker();
+                  }
+              }
+          };
+
+3. Send a broadcast for Fujifilm's SDK with images from your own image picker using an Intent action of FujifilmSPA.ACTION_DATA_RESPONSE and Intent extra FujifilmSPA.EXTRA_IMAGES_FROM_PICKER with your images as the  
+
+          if(overrideFujifilmSDKImagePicker && hasNewImages) {
+              Intent i = new Intent(FujifilmSPA.ACTION_DATA_RESPONSE);
+              i.putExtra(FujifilmSPA.EXTRA_IMAGES_FROM_PICKER, images);
+              LocalBroadcastManager.getInstance(MainActivity.this).sendBroadcast(i);
+          }
 
 #### Providing Pre-rendered Products (Optional)
 In order to include pre-rendered products with your order, you may pass an instance of the `PreRenderedOrder` class into the `extraOptions` parameter. This class contains a list of products (instance of `Line` class) to be added to the order. Each `Line` contains a product code field which corresponds to the product code found on http://fujifilmapi.com, as well as a list of `Page` objects. Each `Page` object contains a list of `Asset` objects, each of which contains an asset type (only "image" is currently accepted) as well as a url to the Hi-Res image to be printed.
@@ -515,7 +552,7 @@ The following are some notes to help with integrating with **Fujifilm SPA Androi
 + If you get a "Duplicate class android.support..." error update the dependency with the following:
 ```
 dependencies {    
-    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.8') {
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.8.9') {
         exclude group: "com.android.support"
     }
 }
