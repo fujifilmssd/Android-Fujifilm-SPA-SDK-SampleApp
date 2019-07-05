@@ -127,7 +127,7 @@ The following are currently accepted key/value pairs for the `extraOptions` init
 
 #### Override Image Picker (Optional)
 If you're interested in having our SDK use your image picker when the user attempts to add more photos to their session, please implement the following steps.
-1. Add the FujifilmSPA.EXTRA_USE_BROADCAST_PICKER option to the extraOptions initialization paramter and set the value to true.
+1. Add the FujifilmSPA.EXTRA_USE_BROADCAST_PICKER option to the extraOptions initialization parameter and set the value to true.
 
         if(overrideFujifilmSDKImagePicker) {
             if (extraOptions == null) {
