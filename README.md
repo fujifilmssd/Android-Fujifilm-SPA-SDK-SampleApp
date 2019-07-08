@@ -136,7 +136,7 @@ If you're interested in having our SDK use your image picker when the user attem
             extraOptions.put(FujifilmSPA.EXTRA_USE_BROADCAST_PICKER, true);
         }
 
-2. Register a receiver to handle a broadcast from Fujifilm's SDK. This will sent when the user attempts to add more photos from the SDK if the extraOption flag is set to true in step 1.
+2. Register a receiver to handle a broadcast from Fujifilm's SDK. This will be sent when the user attempts to add more photos from the SDK if the extraOption flag (FujifilmSPA.EXTRA_USE_BROADCAST_PICKER) is set to true in step 1. The Intent extra contains an array list of unique identifiers (Strings) that represents the images the user has in session. This should be referenced in your image picker to display to the user which images are already in their session (show the image as selected). The FFImage object has a uniqueidentifier property and can be accessed by calling getUniqueIdentifier, myFFimageObject.getUniqueIdentifier(). You can then use this identifier to compare it to the identifiers for the images in your image picker and display to the user the images already in their session.
 
          if(overrideFujifilmSDKImagePicker) {
               IntentFilter filter = new IntentFilter();
@@ -147,7 +147,8 @@ If you're interested in having our SDK use your image picker when the user attem
               @Override
               public void onReceive(Context context, Intent intent) {
                   String action = intent.getAction();
-                  if (action.equals(FujifilmSPA.ACTION_ADD_MORE_PHOTOS)) {
+                  if (action.equals(FujifilmSPA.ACTION_ADD_MORE_PHOTOS)) {                
+                      //ArrayList<String> usedImageIdentifiers = intent.getStringArrayListExtra(FujifilmSPA.EXTRA_ADD_MORE_PHOTOS_USED_IMAGES);
                       showMyOwnImagePicker();
                   }
               }
