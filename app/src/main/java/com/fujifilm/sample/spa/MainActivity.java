@@ -242,7 +242,14 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mImagePickerBroadcastReceiver, filter);
     }
 
-    //Optional: If you are using your own image picker (when the user attempts to Add More Photos from Fujifilm's SDK), you need to listen for a broadcast from Fujifilm's SDK.
+    /**
+     Optional: If you are using your own image picker (when the user attempts to Add More Photos from Fujifilm's SDK), you need to listen for a broadcast from Fujifilm's SDK.
+         This will sent when the user attempts to add more photos from the SDK if the extraOption flag (FujifilmSPA.EXTRA_USE_BROADCAST_PICKER) is set to true in step 1.
+         The Intent extra contains an array list of unique identifiers (Strings) that represents the images the user has in session.
+         This should be referenced in your image picker to display to the user which images are already in their session (show the image as selected).
+         The FFImage object has a uniqueidentifier property and can be accessed by calling getUniqueIdentifier, myFFimageObject.getUniqueIdentifier().
+         You can then use this identifier to compare it to the identifiers for the images in your image picker and display to the user the images already in their session.
+     */
     @SuppressWarnings("unchecked")
     private BroadcastReceiver mAddMorePhotosLocalBroadCastReceiver = new BroadcastReceiver() {
         @Override
@@ -250,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
             String action = intent.getAction();
             if (action.equals(FujifilmSPA.ACTION_ADD_MORE_PHOTOS)) {
+                //ArrayList<String> usedImageIdentifiers = intent.getStringArrayListExtra(FujifilmSPA.EXTRA_ADD_MORE_PHOTOS_USED_IMAGES);
                 pickImage();
             }
         }
