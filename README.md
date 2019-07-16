@@ -121,7 +121,7 @@ The following are currently accepted key/value pairs for the `extraOptions` init
  | Name | Type | Description |
  | ------- | ------| -------------- |
 |`FujifilmSPA.EXTRA_ADD_MORE_PHOTOS_DISABLED`|`boolean`|By default this is set to `false`. To disable the "Add More Photos" feature set this to value `true`. If `false` (or omitted), the user will be able to add more photos from his or her local Photos gallery on the Compose screen and the Prints screen.  
-|`FujifilmSPA.EXTRA_LAUNCH_LINK`|`String`|Specifies which page the user is first presented with when launching the SDK. You can send the user to the cart, a category, or to a product details screen. To send the user to the cart, set the value to `Cart`. To send the user to a category use the follow pattern: `mailorder/CATEGORY_NAME`. Make sure to change the `CATEGORY_NAME` to the name of the category, for example, `mailorder/WallArt`. To send the user to a product details screen use the following pattern: `mailorder/CATEGORY_NAME/PRODUCT_NAME`. Make sure to change `CATEGORY_NAME` to the name of the category and the `PRODUCT_NAME` to the name of the product, for example, `mailorder/canvas/11x14gallerywrappedcanvas`.  
+|`FujifilmSPA.EXTRA_LAUNCH_LINK`|`String`|Specifies which page the user is first presented with when launching the SDK. You can send the user to the cart, category, product details, or product builder. To send the user to the cart, set the value to `Cart`. To send the user to a category use the follow pattern: `mailorder/CATEGORY_NAME`. Make sure to change the `CATEGORY_NAME` to the name of the category, for example, `mailorder/WallArt`. To send the user to a product details screen use the following pattern: `mailorder/CATEGORY_NAME/PRODUCT_NAME`. Make sure to change `CATEGORY_NAME` to the name of the category and the `PRODUCT_NAME` to the name of the product, for example, `mailorder/canvas/11x14gallerywrappedcanvas`. To send the user to a product builder screen use the following pattern: `mailorder/CATEGORY_NAME/PRODUCT_NAME/builder`. Make sure to change `CATEGORY_NAME` to the name of the category and the `PRODUCT_NAME` to the name of the product, for example, `mailorder/canvas/11x14gallerywrappedcanvas/builder`.  
 |`FujifilmSPA.EXTRA_HAS_PRERENDERED_ITEMS`|`PreRenderedOrder`|See section "[Providing Pre-rendered Products](#providing-pre-rendered-products)" for more information  
 |`FujifilmSPA.EXTRA_USE_BROADCAST_PICKER`|`boolean`|By default this is set to `false`. If you would like to use your own image picker set this value to true and follow the instructions in section "[Override Image Picker (Optional)](#override-image-picker-optional)"
 
@@ -163,6 +163,13 @@ If you're interested in having our SDK use your image picker when the user attem
           }
 
 #### Providing Pre-rendered Products (Optional)
+Pre-rendered (custom) products can be used to create your own custom content that we will print on either a 4x8 Greeting card, 5x7 Greeting Card, 5x7 Stationery Card or 8x8 Photo book custom product. Pre-rendered products can only be used with pre-rendered (custom) product codes. You first have to enable the custom product(s) on your pricing page in the portal, which can be found under the Cards > Custom Cards and Photo Books > Custom Photo Books categories in the left navigation. After you enable the custom product(s) you can then use one of the 4 product codes:
+
+    4x8 Greeting Card: "PRGC;823"
+    5x7 Greeting Card: "PRGC;830"
+    5x7 Stationery Card: "PRGift;4121"
+    8x8 Photobook: "PRGift;5212"
+
 In order to include pre-rendered products with your order, you may pass an instance of the `PreRenderedOrder` class into the `extraOptions` parameter. This class contains a list of products (instance of `Line` class) to be added to the order. Each `Line` contains a product code field which corresponds to the product code found on http://fujifilmapi.com, as well as a list of `Page` objects. Each `Page` object contains a list of `Asset` objects, each of which contains an asset type (only "image" is currently accepted) as well as a url to the Hi-Res image to be printed.
 The following is an example function showing how to create an order with a pre-rendered Stationery Card:
 
