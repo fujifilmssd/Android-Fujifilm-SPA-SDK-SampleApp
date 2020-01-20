@@ -65,7 +65,7 @@ Change your minimum SDK version to 21 or above in your gradle file:
 ```
  minSdkVersion 21
 ```
-You can now force Android Studio to sync with your configuration by selecting `Tools -> Android -> Sync Project with Gradle Files`
+You can now force Android Studio to sync with your configuration
  
 Skip to [Implementation Instructions](#implementation-instructions) section below
  
