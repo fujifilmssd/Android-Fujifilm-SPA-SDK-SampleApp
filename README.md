@@ -31,10 +31,10 @@ To install the library in Android Studio using Gradle, you can declare it as dep
  
 ```
 dependencies {
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.10.17')
+    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.11.0')
     
     //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implementation line above and uncomment below):
-    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.10.17') {
+    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.11.0') {
         //exclude group: "com.android.support"
     //}
 }
@@ -43,7 +43,7 @@ dependencies {
 If you get a "Duplicate class android.support..." error update the dependency with the following:
 ```
 dependencies {    
-    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.10.17') {
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.11.0') {
         exclude group: "com.android.support"
     }
 }
@@ -560,7 +560,7 @@ The following are some notes to help with integrating with **Fujifilm SPA Androi
 + If you get a "Duplicate class android.support..." error update the dependency with the following:
 ```
 dependencies {    
-    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.10.17') {
+    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.11.0') {
         exclude group: "com.android.support"
     }
 }
