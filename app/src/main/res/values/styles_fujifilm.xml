@@ -34,12 +34,12 @@
         <item name="colorPrimaryDark">@color/fuji_black</item>
         <item name="colorAccent">@color/fuji_black</item>
 
-        <item name="md_widget_color">@color/fuji_black</item>
+<!--        <item name="md_widget_color">@color/fuji_black</item>-->
         <!--<item name="windowActionBar">false</item>-->
-        <item name="md_positive_color">@color/fuji_black</item>
-        <item name="md_neutral_color">@color/fuji_black</item>
-        <item name="md_negative_color">@color/fuji_black</item>
-        <item name="md_title_color">@color/fuji_black</item>
+<!--        <item name="md_positive_color">@color/fuji_black</item>-->
+<!--        <item name="md_neutral_color">@color/fuji_black</item>-->
+<!--        <item name="md_negative_color">@color/fuji_black</item>-->
+<!--        <item name="md_title_color">@color/fuji_black</item>-->
     </style>
 
     <style name="MIP_theme" parent="Theme.Fujifilm">
