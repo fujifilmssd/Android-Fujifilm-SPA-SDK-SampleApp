@@ -11,63 +11,56 @@ The Fujifilm Smart Publishing API SDK is a library that you can include in your 
 The Fujifilm SPA SDK gives you access to over 50 popular photo gift products and allows you to control the availability and pricing of each product through our web portal. 
  
 Please visit the Fujifilm Developer Network portal to sign-up and obtain an API key, set product pricing, and configure your application.  The portal is available at http://www.fujifilmapi.com/.
- 
+
+The Fujifiml Image Picker library, ffimagepicker.aar, provides access to albums and images on the device for selecting images to use with our photo products.
+
 ## Requirements
 + App minimum SDK 21 or above
 + Developers using the Fujifilm SPA Android SDK need to sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an API Key, and setup catalog products and pricing.
  
 ## Integration Instructions
-To add Fujifilm SPA SDK to your project, you may install it via Gradle or add it manually.
- 
+Add a new module 'fujifilm.spa.sdk', add the file fujifilm.spa.sdk and a build.gradle file to this module.
+```java build.gradle for 'fujifim.spa.sdk' module
+configurations.create("default")
+artifacts.add("default", file('fujifilm.spa.sdk.aar'))
+```
+
+Add a new module 'ffimagepicker', add the file ffimagepicker.aar and a build.gradle file to this module.
+```java build.gradle for 'ffimagepicker' module
+configurations.create("default")
+artifacts.add("default", file('ffimagepicker.aar'))
+```
+
+Add the new modules to your applications's settings.gradle file
+```java settings.gradle for your application
+include ':fujifilm.spa.sdk'
+include ':ffimagepicker'
+```
+
+Add the new modules as dependencies in your application's build.gradle file.
+```xml build.gradle for your application
+dependencies {
+
+    implementation project(path: ':ffimagepicker')
+    implementation project(path: ':fujifilm.spa.sdk')
+
+}
+```
+
 ### Android Manifest - Permissions
 Update your app’s `AndroidManifest.xml` to add the following permissions:
-```
+
+```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
-### Android Studio - Using Gradle
- 
-To install the library in Android Studio using Gradle, you can declare it as dependency in your app's `build.gradle` file.
- 
-```
-dependencies {
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.11.0')
-    
-    //If you get a "Duplicate class android.support..." use the following instead (comment the SDK implementation line above and uncomment below):
-    //implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.11.0') {
-        //exclude group: "com.android.support"
-    //}
-}
-```
-
-If you get a "Duplicate class android.support..." error update the dependency with the following:
-```
-dependencies {    
-    implementation ('com.fujifilmssd:fujifilm.spa.sdk:1.11.0') {
-        exclude group: "com.android.support"
-    }
-}
-```
-
-Include the following repositories in your root project’s `build.gradle` file under the  `allprojects` section:
-```
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url  "http://dl.bintray.com/fujifilmssd/maven" }
-        maven { url "https://jitpack.io" }
-        maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
-    }
-}
-```
 Change your minimum SDK version to 21 or above in your gradle file:
+
+```xml
+minSdkVersion 21
 ```
- minSdkVersion 21
-```
+
 You can now force Android Studio to sync with your configuration
- 
-Skip to [Implementation Instructions](#implementation-instructions) section below
  
 ## Implementation Instructions
  
@@ -96,6 +89,7 @@ FujifilmSPA fujifilmSPA = FujifilmSPA.getInstance();
 ```
  
 Call `checkout` and pass in all required parameters to start. This will create a new child application where the checkout process will commence.
+
 ```java
 fujifilmSPA.checkout(Activity startingActivity, int requestCode, String apiKey, SdkEnvironment environment, String userID, boolean shouldRetainUserInfo, ArrayList<FFImage> images, String promoCode, LaunchPage launchPage, Map<String, Serializable> extraOptions);
 ```

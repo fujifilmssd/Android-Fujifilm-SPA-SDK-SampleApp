@@ -2,6 +2,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <corners android:bottomLeftRadius="2dp" android:topLeftRadius="2dp" />
-    <solid android:color= "@color/alter_album_images_count_text_color" />
-
+    <solid android:color= "@color/fuji_text_color" />
 </shape>

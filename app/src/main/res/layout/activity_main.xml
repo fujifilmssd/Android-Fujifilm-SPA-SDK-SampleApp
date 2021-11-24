@@ -230,15 +230,6 @@
                     android:textSize="@dimen/fuji_text_size_medium" />
             </RelativeLayout>
 
-            <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--style="@style/Theme.Fujifilm.TextButton"-->
-            <!--android:text="@string/launch_options_txt"-->
-            <!--android:background="@drawable/bottom_border"-->
-            <!--android:onClick="goToLaunchOptions"-->
-            <!--/>-->
-
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"

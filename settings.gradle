@@ -1,1 +1,3 @@
 include ':app'
+include ':fujifilm.spa.sdk'
+include ':ffimagepicker'

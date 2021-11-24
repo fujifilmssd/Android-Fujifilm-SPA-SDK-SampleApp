@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.fujifilm.sample.spa"
@@ -28,10 +28,18 @@ android {
 dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:design:28.0.0'
-    implementation 'net.yazeed44.imagepicker:imagepicker:1.3.0'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'ch.acra:acra:4.6.2'
     implementation('fr.avianey.com.viewpagerindicator:library:2.4.1@aar')
-    implementation('com.fujifilmssd:fujifilm.spa.sdk:1.11.0')
+    implementation project(path: ':ffimagepicker')
+    implementation project(path: ':fujifilm.spa.sdk')
+    implementation('com.github.afollestad.material-dialogs:core:0.8.5.1@aar') {
+        transitive = true
+    }
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation('com.braintreepayments.api:braintree:2.21.0') {
+        transitive = true
+    }
 }
