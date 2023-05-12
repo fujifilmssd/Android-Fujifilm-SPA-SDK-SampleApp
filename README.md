@@ -15,7 +15,7 @@ Please visit the Fujifilm Developer Network portal to sign-up and obtain an API 
 The Fujifiml Image Picker library, ffimagepicker.aar, provides access to albums and images on the device for selecting images to use with our photo products.
 
 ## Requirements
-+ App minimum SDK 21 or above
++ App minimum SDK 28 or above
 + Developers using the Fujifilm SPA Android SDK need to sign up for an account on Fujifilm Developer Network (http://fujifilmapi.com), create an application, obtain an API Key, and setup catalog products and pricing.
  
 ## Integration Instructions
@@ -51,13 +51,13 @@ dependencies {
 Update your app’s `AndroidManifest.xml` to add the following permissions:
 
 ```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 ```
 
-Change your minimum SDK version to 21 or above in your gradle file:
+Change your minimum SDK version to 28 or above in your gradle file:
 
 ```xml
-minSdkVersion 21
+minSdkVersion 28
 ```
 
 You can now force Android Studio to sync with your configuration

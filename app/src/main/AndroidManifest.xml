@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fujifilm.sample.spa">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
@@ -12,8 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fujifilm">
 
-        <activity android:name="net.yazeed44.imagepicker.ui.PickerActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name="org.acra.CrashReportDialog"
             android:excludeFromRecents="true"
@@ -25,7 +23,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.SPAFujifilm"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
