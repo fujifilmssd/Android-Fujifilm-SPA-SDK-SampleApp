@@ -341,8 +341,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 |Event Name|Event Value|Description|
 |-|-|-|
 |Exit|`FujifilmSPA.Analytics.ACTION_EXIT`|Sent when the user exits the SDK|
-|Print Edited|`FujifilmSPA.Analytics.ACTION_PRINT_EDITED`|Sent when the user edits a print product|
-|Product Edited|`FujifilmSPA.Analytics.ACTION_PRODUCT_EDITED`|Sent when the user edits any non-print product|
+|Print Edited|`FujifilmSPA.Analytics.ACTION_PRINT_EDITED`|Sent when the user finishes making edits to a photo on the prints page|
+|Product Edited|`FujifilmSPA.Analytics.ACTION_PRODUCT_EDITED`|Sent when the user finishes editing an item from the cart|
 |Continue Shopping|`FujifilmSPA.Analytics.ACTION_CONTINUE_SHOPPING`|Sent when the user tapps "Continue Shopping" from the cart page and the thank you page|
 |Item Added to Cart|`FujifilmSPA.Analytics.ACTION_ITEM_ADDED_TO_CART`|Sent when a product is added to cart from either the compose page or the prints page|
 |Item Composed|`FujifilmSPA.Analytics.ACTION_ITEM_COMPOSED`|Sent when the user goes to the compose page to edit a product|
